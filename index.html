@@ -260,7 +260,85 @@ strong{font-weight:700;color:var(--text-primary);}
 .auto-controls input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; }
 .speed-wrap { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
 .speed-wrap input[type="range"] { width: 100px; accent-color: var(--accent); }
+
+/* Energy dial */
+.energy-control{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:var(--text-secondary);font-weight:600;}
+.energy-control input[type="range"]{width:90px;accent-color:var(--accent);}
+#energyLabel{font-weight:700;min-width:42px;text-align:left;transition:color var(--dur-fast);}
+#energyLabel.low{color:var(--warning);}
+#energyLabel.med{color:#fbbf24;}
+#energyLabel.high{color:var(--success);}
+.isotope-circle.miss{color:var(--error)!important;border-color:var(--error)!important;box-shadow:0 0 20px rgba(239,68,68,0.4)!important;animation:missShake 0.4s ease-out!important;}
+@keyframes missShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:0.75rem;width:100%;max-width:720px;}
+.gallery-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 0.6rem;text-align:center;transition:all var(--dur-normal) var(--ease-out);display:flex;flex-direction:column;align-items:center;gap:0.3rem;}
+.gallery-card.collected{border-color:var(--accent);box-shadow:0 0 16px var(--accent-glow);}
+.gallery-card.collected:hover{transform:translateY(-2px);box-shadow:0 0 24px var(--accent-glow);}
+.gallery-card.locked{opacity:0.3;filter:grayscale(1);}
+.gallery-card img{width:56px;height:56px;}
+.gallery-card .g-placeholder{width:56px;height:56px;border-radius:50%;background:var(--border-subtle);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--text-tertiary);}
+.gallery-card .g-name{font-family:'Open Sans',sans-serif;font-size:0.82rem;font-weight:700;color:var(--text-primary);}
+.gallery-card .g-element{font-size:0.68rem;color:var(--text-tertiary);}
+.gallery-card .g-year{font-size:0.62rem;color:var(--text-tertiary);}
+.gallery-card.locked .g-name{color:var(--text-tertiary);}
+.btn-gallery{padding:0.5rem 1.2rem;font-family:'Open Sans',sans-serif;font-size:0.82rem;font-weight:600;color:var(--accent);background:transparent;border:1.5px solid var(--accent);border-radius:var(--radius-sm);cursor:pointer;transition:all var(--dur-fast) var(--ease-out);}
+.btn-gallery:hover{background:var(--accent-subtle);box-shadow:var(--shadow-sm);}
+
+/* Nuclear chart mini-map */
+.nuclear-chart{position:fixed;bottom:1rem;right:1rem;z-index:50;background:var(--bg-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:0.5rem;box-shadow:var(--shadow-md);transition:all var(--dur-normal) var(--ease-out);}
+.nuclear-chart:hover{box-shadow:var(--shadow-lg);}
+.nuclear-chart .nc-title{font-family:'Open Sans',sans-serif;font-size:0.58rem;font-weight:700;color:var(--text-tertiary);text-align:center;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.2rem;}
+.nuclear-chart svg{display:block;}
+.nuclear-chart .nc-dot.discovered{fill:var(--accent);}
+.nuclear-chart .nc-dot.undiscovered{fill:var(--border-default);}
+.nuclear-chart .nc-dot.stable{fill:var(--text-tertiary);opacity:0.3;}
+@media(max-width:700px){.nuclear-chart{display:none;}}
+
+/* Build mode */
+.build-panel{width:100%;max-width:500px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem 2rem;box-shadow:var(--shadow-card);}
+.build-panel .build-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;}
+.build-panel .build-row label{font-weight:700;font-size:0.85rem;min-width:70px;color:var(--text-primary);}
+.build-panel .build-row input[type="range"]{flex:1;min-width:120px;accent-color:var(--accent);}
+.build-panel .build-row .build-val{font-weight:700;font-size:0.9rem;min-width:30px;text-align:right;color:var(--accent);}
+.build-result{text-align:center;padding:1.2rem;background:var(--bg-elevated);border-radius:var(--radius-md);border:1px solid var(--border-subtle);margin-top:0.5rem;}
+.build-result .br-isotope{font-family:'Open Sans',sans-serif;font-size:1.6rem;font-weight:800;color:var(--accent);}
+.build-result .br-verdict{font-size:0.82rem;font-weight:700;margin-top:0.3rem;}
+.build-result .br-verdict.stable{color:var(--success);}
+.build-result .br-verdict.radioactive{color:var(--warning);}
+.build-result .br-verdict.impossible{color:var(--error);}
+.build-result .br-detail{font-size:0.75rem;color:var(--text-secondary);margin-top:0.3rem;line-height:1.5;}
 .completion-msg { font-family: 'Open Sans', sans-serif; font-size: 0.9rem; color: var(--accent); font-weight: 700; text-align: center; }
+
+/* Welcome banner */
+.welcome-banner{display:none;width:100%;max-width:500px;padding:0.7rem 1.2rem;background:var(--accent-subtle);border:1px solid var(--accent);border-radius:var(--radius-md);font-size:0.82rem;color:var(--accent);text-align:center;font-weight:600;}
+.welcome-banner.visible{display:block;animation:pageEnter 0.5s var(--ease-out);}
+
+/* Share card */
+.share-card{display:none;width:100%;max-width:420px;padding:1rem 1.4rem;background:var(--bg-card);border:2px solid var(--accent);border-radius:var(--radius-md);text-align:center;box-shadow:var(--shadow-glow);animation:pageEnter 0.5s var(--ease-out);}
+.share-card.visible{display:block;}
+.share-card .share-text{font-family:'Open Sans',sans-serif;font-size:0.9rem;font-weight:700;color:var(--text-primary);margin-bottom:0.6rem;}
+.share-card .share-buttons{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+.share-card .btn-copy{padding:0.45rem 1.2rem;font-family:'Open Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:var(--radius-sm);cursor:pointer;transition:all var(--dur-fast) var(--ease-out);}
+.share-card .btn-copy:hover{background:var(--accent-hover);}
+.share-card .btn-copy.copied{background:var(--success);}
+
+/* Timeline dots */
+.timeline-dots{display:flex;justify-content:center;gap:0.35rem;margin-top:0.5rem;flex-wrap:wrap;}
+.timeline-dot{width:10px;height:10px;border-radius:50%;background:var(--border-default);transition:all var(--dur-normal) var(--ease-out);cursor:pointer;}
+.timeline-dot.active{background:var(--accent);box-shadow:0 0 6px var(--accent-glow);}
+.timeline-dot.visited{background:var(--blue-400);}
+.timeline-dot.visited:hover{transform:scale(1.5);box-shadow:0 0 8px var(--accent-glow);}
+
+/* Decay particles */
+.decay-particle{position:fixed;width:6px;height:6px;border-radius:50%;pointer-events:none;z-index:20;}
+.decay-label{position:fixed;font-size:0.62rem;font-weight:700;pointer-events:none;z-index:20;white-space:nowrap;font-family:'Open Sans',sans-serif;}
+.decay-alpha{background:#ff4444;box-shadow:0 0 10px #ff4444;}
+.decay-beta-minus{background:#4488ff;box-shadow:0 0 10px #4488ff;}
+.decay-beta-plus{background:#44ccff;box-shadow:0 0 10px #44ccff;}
+.decay-gamma{background:#ffcc00;box-shadow:0 0 10px #ffcc00;}
+.decay-ec{background:#66ee66;box-shadow:0 0 10px #66ee66;}
 
 .footer { width: 100%; text-align: center; padding: 1rem; font-size: 0.68rem; color: var(--text-muted); border-top: 1px solid var(--border-default); position: relative; z-index: 1; transition: all 0.5s ease; }
 .footer a { color: var(--accent); text-decoration: none; }
@@ -341,12 +419,15 @@ strong{font-weight:700;color:var(--text-primary);}
       <p class="subtitle">Fire the proton beam to create and study radioactive isotopes.</p>
     </div>
 
+    <div class="welcome-banner" id="welcomeBanner"></div>
+
     <div class="progress-bar-wrap">
       <div class="progress-label">
         <span id="progressText">Discovery 0 / 15</span>
         <span id="progressPct">0%</span>
       </div>
       <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="timeline-dots" id="timelineDots"></div>
     </div>
 
     <div class="beamline" id="beamline">
@@ -375,6 +456,7 @@ strong{font-weight:700;color:var(--text-primary);}
             <div class="iso-name" id="isoName"></div>
             <div class="info-row"><span class="label">Element:</span><span class="value" id="isoElement"></span></div>
             <div class="info-row"><span class="label">Year:</span><span class="value" id="isoYear"></span></div>
+            <div class="info-row" id="isoDecayRow"><span class="label">Decay:</span><span class="value" id="isoDecay"></span></div>
           </div>
         </div>
         <div class="info-desc" id="isoDesc"></div>
@@ -387,13 +469,67 @@ strong{font-weight:700;color:var(--text-primary);}
 
     <div class="controls">
       <button class="btn-fire" id="btnFire" disabled>FIRE BEAM</button>
+      <button class="btn-gallery" id="btnGallery">📦 View Collection</button>
+      <button class="btn-gallery" id="btnBuild">🔧 Build Mode</button>
       <div class="completion-msg" id="completionMsg" style="display:none">ISOLDE timeline completed.</div>
+      <div class="share-card" id="shareCard">
+        <div class="share-text" id="shareText">I discovered 15 isotopes at ISOLDE! 🧪 #CERN</div>
+        <div class="share-buttons">
+          <button class="btn-copy" id="btnCopy">📋 Copy to Clipboard</button>
+        </div>
+      </div>
       <button class="btn-restart" id="btnRestart" style="display:none">Restart Timeline</button>
       <div class="auto-controls">
         <label><input type="checkbox" id="autoPlay"><span>Auto Play</span></label>
         <div class="speed-wrap"><span>Speed:</span><input type="range" id="speedSlider" min="1" max="5" value="3" step="0.5"><span id="speedLabel">3s</span></div>
       </div>
+      <div class="energy-control">
+        <span>Beam Energy:</span>
+        <input type="range" id="energySlider" min="1" max="3" value="3" step="1">
+        <span id="energyLabel" class="high">High</span>
+      </div>
     </div>
+
+    <div class="nuclear-chart" id="nuclearChart">
+      <div class="nc-title">Chart of Nuclides</div>
+      <svg id="ncSvg" width="160" height="140"></svg>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: BUILD MODE ==================== -->
+  <div class="page" id="pageBuild">
+    <button class="btn-back" id="btnBackBuild">← Back to Simulator</button>
+    <div class="header">
+      <h1>Build Your Own Isotope</h1>
+      <p class="subtitle">Drag sliders to explore which combinations of protons and neutrons can form a nucleus</p>
+    </div>
+    <div class="build-panel">
+      <div class="build-row">
+        <label>Protons (Z):</label>
+        <input type="range" id="protonSlider" min="1" max="118" value="6" step="1">
+        <span class="build-val" id="protonVal">6</span>
+      </div>
+      <div class="build-row">
+        <label>Neutrons (N):</label>
+        <input type="range" id="neutronSlider" min="0" max="180" value="6" step="1">
+        <span class="build-val" id="neutronVal">6</span>
+      </div>
+      <div class="build-result" id="buildResult">
+        <div class="br-isotope" id="brIsotope">C-12</div>
+        <div class="br-verdict stable" id="brVerdict">Stable</div>
+        <div class="br-detail" id="brDetail">Carbon-12 is the most common isotope of carbon — stable and makes up 98.9% of all natural carbon.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: GALLERY ==================== -->
+  <div class="page" id="pageGallery">
+    <button class="btn-back" id="btnBackGallery">← Back to Simulator</button>
+    <div class="header">
+      <h1>Isotope Collection</h1>
+      <p class="subtitle" id="gallerySubtitle">0 of 15 isotopes discovered</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
   </div>
 </div>
 
@@ -429,11 +565,138 @@ const discoveries = [
   { isotope:"Ra-224", element:"Radium", year:2020, discovery:"ISOLDE''s study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a ''pear-shaped'' nuclear shape with implications for atomic electric dipole moment searches.", science:"Ra-224 has a pear-shaped (octupole-deformed) nucleus. This asymmetry amplifies certain quantum effects, making radium atoms ideal laboratories for searching for new physics beyond the Standard Model.", applications:"Radium isotopes are used in targeted alpha therapy — a cutting-edge cancer treatment that delivers lethal radiation directly to tumour cells while sparing healthy tissue." }
 ];
 
+// Decay data (mode + half-life for each isotope)
+const decayMap = {
+  'Na-20':{mode:'beta+',hl:'447 ms'},
+  'Ne-17':{mode:'beta+',hl:'109 ms'},
+  'Mg-21':{mode:'beta+',hl:'122 ms'},
+  'Ar-31':{mode:'beta+',hl:'15 ms'},
+  'Kr-72':{mode:'beta+',hl:'17 s'},
+  'Sr-75':{mode:'beta+',hl:'88 ms'},
+  'Rb-74':{mode:'beta+',hl:'65 ms'},
+  'Sn-100':{mode:'beta+',hl:'1.1 s'},
+  'Ni-78':{mode:'beta-',hl:'122 ms'},
+  'Zn-56':{mode:'beta+',hl:'33 ms'},
+  'Cd-98':{mode:'beta+',hl:'10 s'},
+  'Ca-52':{mode:'beta-',hl:'4.6 s'},
+  'Cu-78':{mode:'beta-',hl:'335 ms'},
+  'K-51':{mode:'beta-',hl:'365 ms'},
+  'Ra-224':{mode:'alpha',hl:'3.6 d'}
+};
+const decayStyles = {alpha:'decay-alpha','beta-':'decay-beta-minus','beta+':'decay-beta-plus',gamma:'decay-gamma',EC:'decay-ec'};
+const decayGlyphs = {alpha:'α particle','beta-':'β⁻ particle','beta+':'β⁺ particle',gamma:'γ ray',EC:'electron capture'};
+
+function spawnDecayParticle(iso) {
+  const info = decayMap[iso]; if (!info) return;
+  const r = isotopeCircle.getBoundingClientRect();
+  const cx = r.left + r.width/2, cy = r.top + r.height/2;
+  const colorClass = decayStyles[info.mode] || 'decay-gamma';
+  const a = -Math.PI/2 + (Math.random()-0.5)*1.6; // mostly upward-ish
+  const dist = 35 + Math.random()*55;
+  
+  const p = document.createElement('div'); p.className = `decay-particle ${colorClass}`;
+  p.style.cssText = `left:${cx-3}px;top:${cy-3}px;`;
+  document.body.appendChild(p);
+  
+  const lbl = document.createElement('div'); lbl.className = 'decay-label';
+  lbl.textContent = decayGlyphs[info.mode] || info.mode;
+  lbl.style.cssText = `left:${cx+6}px;top:${cy-10}px;color:var(--text-secondary);`;
+  document.body.appendChild(lbl);
+  
+  requestAnimationFrame(() => {
+    p.style.transition = 'all 1s cubic-bezier(0.25,0,0.35,0)';
+    p.style.transform = `translate(${Math.cos(a)*dist}px,${Math.sin(a)*dist}px)`;
+    p.style.opacity = '0';
+    lbl.style.transition = 'all 1s ease-out';
+    lbl.style.transform = `translate(${Math.cos(a)*dist*0.7}px,${Math.sin(a)*dist*0.7}px)`;
+    lbl.style.opacity = '0';
+  });
+  setTimeout(() => { p.remove(); lbl.remove(); }, 1050);
+}
+
 // State
 let currentIndex = 0, isAnimating = false, autoPlayTimer = null, dismissTimer = null;
 let autoPlay = false, autoPlaySpeed = 3;
 
 const $ = id => document.getElementById(id);
+
+// === Sound effects (Web Audio API) ===
+let audioCtx = null;
+function getAudioCtx() {
+  if (!audioCtx) { try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){} }
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function playWhoosh() {
+  const ctx = getAudioCtx(); if (!ctx) return;
+  const dur = 0.55;
+  const osc = ctx.createOscillator(), gain = ctx.createGain(), filt = ctx.createBiquadFilter();
+  osc.type = 'sawtooth'; osc.frequency.setValueAtTime(180, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(35, ctx.currentTime + dur);
+  filt.type = 'lowpass'; filt.frequency.setValueAtTime(2500, ctx.currentTime);
+  filt.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + dur);
+  gain.gain.setValueAtTime(0.06, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+  osc.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
+  osc.start(ctx.currentTime); osc.stop(ctx.currentTime + dur);
+}
+function playDing() {
+  const ctx = getAudioCtx(); if (!ctx) return;
+  const osc = ctx.createOscillator(), gain = ctx.createGain();
+  osc.type = 'sine'; osc.frequency.setValueAtTime(880, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(660, ctx.currentTime + 0.25);
+  gain.gain.setValueAtTime(0.1, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.35);
+}
+
+// === localStorage persistence ===
+const LS_KEY = 'isolde-progress';
+function saveProgress() { localStorage.setItem(LS_KEY, currentIndex); }
+function loadProgress() { return parseInt(localStorage.getItem(LS_KEY)) || 0; }
+function showWelcomeBanner() {
+  const saved = loadProgress();
+  if (saved > 0 && saved < discoveries.length) {
+    const banner = $('welcomeBanner');
+    banner.textContent = `Welcome back! You were at Discovery ${saved} of ${discoveries.length}.`;
+    banner.classList.add('visible');
+    currentIndex = saved; updateProgress(); renderTimelineDots();
+  }
+}
+
+// === Timeline dots ===
+function renderTimelineDots() {
+  const container = $('timelineDots');
+  container.innerHTML = '';
+  for (let i = 0; i < discoveries.length; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'timeline-dot';
+    if (i < currentIndex) dot.classList.add('visited');
+    if (i === currentIndex && i < discoveries.length) dot.classList.add('active');
+    dot.title = discoveries[i].isotope;
+    dot.addEventListener('click', () => jumpToDiscovery(i));
+    container.appendChild(dot);
+  }
+}
+function jumpToDiscovery(i) {
+  if (i >= currentIndex || isAnimating) return;
+  const d = discoveries[i];
+  isotopeCircle.textContent = d.isotope; isotopeCircle.classList.add('revealed');
+  showInfoCard(d);
+  setTimeout(() => { isotopeCircle.classList.remove('revealed'); }, 3000);
+}
+
+// === Keyboard shortcuts ===
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === ' ' || e.key === 'Enter') {
+    e.preventDefault();
+    if (pageSim.classList.contains('active') && !isAnimating && currentIndex < discoveries.length) {
+      stopAutoPlay(); clearTimeout(dismissTimer); fireBeam();
+    }
+  }
+});
 
 // Theme
 const themeToggle = $('themeToggle');
@@ -456,6 +719,8 @@ function showPage(id) {
 $('btnStart').addEventListener('click', () => {
   showPage('pageSim');
   $('btnFire').disabled = false;
+  showWelcomeBanner();
+  renderNuclearChart();
   window.scrollTo(0, 0);
 });
 $('btnBack').addEventListener('click', () => {
@@ -463,6 +728,138 @@ $('btnBack').addEventListener('click', () => {
   showPage('pageLearn');
   window.scrollTo(0, 0);
 });
+
+// Gallery navigation
+$('btnGallery').addEventListener('click', () => {
+  renderGallery(); showPage('pageGallery'); window.scrollTo(0, 0);
+});
+$('btnBackGallery').addEventListener('click', () => {
+  showPage('pageSim'); window.scrollTo(0, 0);
+});
+
+function renderGallery() {
+  const grid = $('galleryGrid');
+  grid.innerHTML = '';
+  discoveries.forEach((d, i) => {
+    const collected = i < currentIndex;
+    const card = document.createElement('div');
+    card.className = 'gallery-card' + (collected ? ' collected' : ' locked');
+    card.innerHTML = collected
+      ? `<img src="images/${d.element.toLowerCase()}.svg" alt="${d.element}"><div class="g-name">${d.isotope}</div><div class="g-element">${d.element}</div><div class="g-year">Discovered ${d.year}</div>`
+      : `<div class="g-placeholder">?</div><div class="g-name">???</div><div class="g-element">Undiscovered</div><div class="g-year"></div>`;
+    grid.appendChild(card);
+  });
+  $('gallerySubtitle').textContent = `${currentIndex} of ${discoveries.length} isotopes discovered`;
+}
+
+// === Nuclear chart mini-map ===
+function renderNuclearChart() {
+  const svg = $('ncSvg');
+  const w = 160, h = 140, pad = 18;
+  // Compute N,Z for each isotope: N = mass - Z
+  const points = discoveries.map(d => {
+    const z = elemData[d.element].num;
+    const n = parseInt(d.isotope.split('-')[1]) - z;
+    return {z, n, isotope: d.isotope, discovered: discoveries.indexOf(d) < currentIndex};
+  });
+  // Add a few stable reference points
+  const stables = [
+    {z:8,n:8},{z:10,n:10},{z:12,n:12},{z:14,n:14},{z:16,n:16},{z:18,n:22},
+    {z:20,n:20},{z:20,n:28},{z:28,n:30},{z:50,n:70},{z:38,n:50}
+  ];
+  const allZ = points.map(p=>p.z).concat(stables.map(s=>s.z));
+  const allN = points.map(p=>p.n).concat(stables.map(s=>s.n));
+  const zMin = Math.max(0, Math.min(...allZ) - 2), zMax = Math.max(...allZ) + 2;
+  const nMin = Math.max(0, Math.min(...allN) - 2), nMax = Math.max(...allN) + 2;
+  const scaleX = (x) => pad + ((x - nMin) / (nMax - nMin || 1)) * (w - 2*pad);
+  const scaleY = (y) => h - pad - ((y - zMin) / (zMax - zMin || 1)) * (h - 2*pad);
+  
+  let html = '';
+  // Grid lines
+  for (let z = Math.floor(zMin); z <= zMax; z++) {
+    const y = scaleY(z);
+    html += `<line x1="${pad}" y1="${y}" x2="${w-pad}" y2="${y}" stroke="var(--border-subtle)" stroke-width="0.5"/>`;
+    html += `<text x="${pad-3}" y="${y+3}" fill="var(--text-tertiary)" font-size="5" text-anchor="end">${z}</text>`;
+  }
+  for (let n = Math.floor(nMin); n <= nMax; n++) {
+    const x = scaleX(n);
+    html += `<line x1="${x}" y1="${pad}" x2="${x}" y2="${h-pad}" stroke="var(--border-subtle)" stroke-width="0.5"/>`;
+    html += `<text x="${x}" y="${h-pad+8}" fill="var(--text-tertiary)" font-size="5" text-anchor="middle">${n}</text>`;
+  }
+  // Axes labels
+  html += `<text x="3" y="${h/2}" fill="var(--text-tertiary)" font-size="6" text-anchor="middle" transform="rotate(-90,3,${h/2})">Z (protons)</text>`;
+  html += `<text x="${w/2}" y="${h-2}" fill="var(--text-tertiary)" font-size="6" text-anchor="middle">N (neutrons)</text>`;
+  // Stable reference dots
+  stables.forEach(s => {
+    html += `<circle cx="${scaleX(s.n)}" cy="${scaleY(s.z)}" r="2" class="nc-dot stable"/>`;
+  });
+  // Isotope dots
+  points.forEach(p => {
+    const cls = p.discovered ? 'discovered' : 'undiscovered';
+    html += `<circle cx="${scaleX(p.n)}" cy="${scaleY(p.z)}" r="${p.discovered?3.5:2}" class="nc-dot ${cls}"><title>${p.isotope}</title></circle>`;
+  });
+  svg.innerHTML = html;
+}
+
+// === Build mode ===
+// Simplified element names (first 118)
+const elementNames = ['H','He','Li','Be','B','C','N','O','F','Ne','Na','Mg','Al','Si','P','S','Cl','Ar','K','Ca','Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr','Rb','Sr','Y','Zr','Nb','Mo','Tc','Ru','Rh','Pd','Ag','Cd','In','Sn','Sb','Te','I','Xe','Cs','Ba','La','Ce','Pr','Nd','Pm','Sm','Eu','Gd','Tb','Dy','Ho','Er','Tm','Yb','Lu','Hf','Ta','W','Re','Os','Ir','Pt','Au','Hg','Tl','Pb','Bi','Po','At','Rn','Fr','Ra','Ac','Th','Pa','U','Np','Pu','Am','Cm','Bk','Cf','Es','Fm','Md','No','Lr','Rf','Db','Sg','Bh','Hs','Mt','Ds','Rg','Cn','Nh','Fl','Mc','Lv','Ts','Og'];
+// Stable isotope data: {Z: [N values]} for simplified stability check
+const stableNByZ = {
+  1:[0,1],2:[1,2],3:[3,4],4:[5],5:[5,6],6:[6,7],7:[7,8],8:[8,9,10],9:[10],
+  10:[10,11,12],11:[12],12:[12,13,14],13:[14],14:[14,15,16],15:[16],16:[16,17,18,19,20],
+  17:[18,20],18:[18,20,22],19:[20,22],20:[20,22,23,24,26,28],26:[28,30,31,32],
+  28:[30,31,32,33,34,36],29:[34,36],30:[34,36,37,38,40],50:[62,64,65,66,67,68,69,70,72,74],
+  82:[122,124,125,126,128]
+};
+// Approximate drip lines: min N for given Z, max N for given Z
+function isNearStability(z, n) {
+  // Rough beta-stability valley: N ≈ Z + 0.006*Z² (simplified)
+  const idealN = z + 0.006 * z * z;
+  const ratio = n / Math.max(1, z);
+  if (ratio < 0.3 || ratio > 3.5) return 'impossible';
+  if (Math.abs(n - idealN) < z * 0.12) {
+    // Check known stables
+    if (stableNByZ[z] && stableNByZ[z].includes(n)) return 'stable';
+    return 'radioactive';
+  }
+  if (ratio < 0.5 || ratio > 2.8) return 'impossible';
+  return 'radioactive';
+}
+
+function updateBuildResult() {
+  const z = parseInt($('protonSlider').value);
+  const n = parseInt($('neutronSlider').value);
+  const a = z + n;
+  $('protonVal').textContent = z;
+  $('neutronVal').textContent = n;
+  const sym = elementNames[z-1] || '?';
+  $('brIsotope').textContent = `${sym}-${a}`;
+  
+  const verdict = z > 118 ? 'impossible' : isNearStability(z, n);
+  const verdictEl = $('brVerdict');
+  verdictEl.className = 'br-verdict ' + verdict;
+  verdictEl.textContent = verdict === 'stable' ? 'Stable' : verdict === 'radioactive' ? 'Radioactive' : 'Impossible';
+  
+  let detail = '';
+  if (verdict === 'stable') {
+    detail = `${sym}-${a} would be a stable isotope — it could exist indefinitely without decaying.`;
+  } else if (verdict === 'radioactive') {
+    detail = `${sym}-${a} would be radioactive — it would decay over time, possibly within fractions of a second. ISOLDE studies isotopes like this to understand nuclear forces.`;
+  } else {
+    detail = `${sym}-${a} is outside the nuclear drip lines — the strong force cannot bind ${n} neutrons with ${z} protons. This combination would fly apart instantly.`;
+  }
+  $('brDetail').textContent = detail;
+}
+
+$('btnBuild').addEventListener('click', () => {
+  showPage('pageBuild'); updateBuildResult(); window.scrollTo(0, 0);
+});
+$('btnBackBuild').addEventListener('click', () => {
+  showPage('pageSim'); window.scrollTo(0, 0);
+});
+$('protonSlider').addEventListener('input', updateBuildResult);
+$('neutronSlider').addEventListener('input', updateBuildResult);
 
 // Simulator DOM
 const btnFire = $('btnFire'), btnRestart = $('btnRestart'), completionMsg = $('completionMsg');
@@ -502,6 +899,11 @@ function showInfoCard(d) {
   isoName.textContent=d.isotope;isoElement.textContent=d.element;
   isoYear.textContent=d.year;isoDesc.textContent=d.discovery;
   isoImage.src='images/'+d.element.toLowerCase()+'.svg';isoImage.alt=d.element;
+  // Decay info
+  const dec = decayMap[d.isotope];
+  const decayEl = $('isoDecay');
+  if (dec) { decayEl.textContent = `${decayGlyphs[dec.mode]} · half-life ${dec.hl}`; decayEl.style.display = ''; }
+  else { decayEl.style.display = 'none'; }
   if(d.science&&d.applications){isoScience.textContent=d.science;isoApplications.textContent=d.applications;isoImpact.style.display='flex';}
   else{isoImpact.style.display='none';}
   infoPlaceholder.style.display='none';infoContent.style.display='block';
@@ -516,14 +918,32 @@ function hideInfoCard() {
 function fireBeam() {
   if(isAnimating||currentIndex>=discoveries.length)return;
   isAnimating=true;btnFire.disabled=true;clearTimeout(dismissTimer);
+  playWhoosh();
   const d=discoveries[currentIndex];
   beamPulse.classList.remove('firing');void beamPulse.offsetWidth;beamPulse.classList.add('firing');
   setTimeout(()=>{targetFlash.classList.remove('active');void targetFlash.offsetWidth;targetFlash.classList.add('active');spawnParticles();},580);
-  setTimeout(()=>{isotopeCircle.textContent=d.isotope;isotopeCircle.classList.add('revealed');},900);
+  
+  // Check if beam misses due to energy level
+  if (Math.random() < missChances[beamEnergy]) {
+    setTimeout(()=>{
+      isotopeCircle.textContent='–';isotopeCircle.classList.add('revealed','miss');
+      playBuzz();
+    },900);
+    setTimeout(()=>{
+      beamPulse.classList.remove('firing');targetFlash.classList.remove('active');
+      isotopeCircle.classList.remove('revealed','miss');isotopeCircle.textContent='?';
+      isAnimating=false;btnFire.disabled=false;
+      if(autoPlay)scheduleAutoPlay();
+    },2500);
+    return;
+  }
+  
+  setTimeout(()=>{isotopeCircle.textContent=d.isotope;isotopeCircle.classList.add('revealed');playDing();},900);
+  setTimeout(()=>{spawnDecayParticle(d.isotope);},1100);
   setTimeout(()=>showInfoCard(d),1200);
   setTimeout(()=>{
     beamPulse.classList.remove('firing');targetFlash.classList.remove('active');
-    isotopeCircle.classList.remove('revealed');currentIndex++;updateProgress();isAnimating=false;
+    isotopeCircle.classList.remove('revealed');currentIndex++;updateProgress();renderTimelineDots();saveProgress();renderNuclearChart();isAnimating=false;
     if(currentIndex>=discoveries.length){complete();}
     else{btnFire.disabled=false;if(autoPlay){dismissTimer=setTimeout(()=>{hideInfoCard();dismissTimer=setTimeout(()=>{if(autoPlay&&!isAnimating&&currentIndex<discoveries.length)fireBeam();},400);},10000);}}
   },3200);
@@ -531,7 +951,9 @@ function fireBeam() {
 
 function complete(){
   btnFire.style.display='none';completionMsg.style.display='block';btnRestart.style.display='inline-block';
+  $('shareCard').classList.add('visible');
   stopAutoPlay();isotopeCircle.textContent='\u2713';isotopeCircle.classList.add('revealed');infoPanel.classList.add('visible');
+  saveProgress();
 }
 
 function restart(){
@@ -540,7 +962,9 @@ function restart(){
   infoPlaceholder.style.display='flex';infoContent.style.display='none';
   beamPulse.classList.remove('firing');targetFlash.classList.remove('active');
   btnFire.style.display='';btnFire.disabled=true;completionMsg.style.display='none';btnRestart.style.display='none';
-  updateProgress();btnFire.disabled=false;if(autoPlay)scheduleAutoPlay();
+  $('shareCard').classList.remove('visible');$('btnCopy').classList.remove('copied');$('btnCopy').textContent='📋 Copy to Clipboard';
+  $('welcomeBanner').classList.remove('visible');
+  updateProgress();renderTimelineDots();saveProgress();renderNuclearChart();btnFire.disabled=false;if(autoPlay)scheduleAutoPlay();
 }
 
 function scheduleAutoPlay(){
@@ -555,6 +979,43 @@ btnFire.addEventListener('click',()=>{if(!isAnimating&&currentIndex<discoveries.
 btnRestart.addEventListener('click',restart);
 autoPlayCheckbox.addEventListener('change',()=>{autoPlay=autoPlayCheckbox.checked;clearTimeout(dismissTimer);if(autoPlay)scheduleAutoPlay();else stopAutoPlay();});
 speedSlider.addEventListener('input',()=>{autoPlaySpeed=parseFloat(speedSlider.value);speedLabel.textContent=autoPlaySpeed+'s';if(autoPlay){stopAutoPlay();scheduleAutoPlay();}});
+
+// Beam energy dial
+const energySlider = $('energySlider'), energyLabel = $('energyLabel');
+let beamEnergy = 3; // 1=Low, 2=Medium, 3=High
+const energyNames = {1:'Low',2:'Medium',3:'High'};
+const energyClasses = {1:'low',2:'med',3:'high'};
+const missChances = {1:0.4, 2:0.15, 3:0};
+energySlider.addEventListener('input', () => {
+  beamEnergy = parseInt(energySlider.value);
+  energyLabel.textContent = energyNames[beamEnergy];
+  energyLabel.className = energyClasses[beamEnergy];
+});
+
+// Buzz sound for misses
+function playBuzz() {
+  const ctx = getAudioCtx(); if (!ctx) return;
+  const osc = ctx.createOscillator(), gain = ctx.createGain();
+  osc.type = 'square'; osc.frequency.setValueAtTime(80, ctx.currentTime);
+  osc.frequency.setValueAtTime(55, ctx.currentTime + 0.15);
+  gain.gain.setValueAtTime(0.05, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.3);
+}
+
+// Share card copy
+const btnCopy = $('btnCopy');
+btnCopy.addEventListener('click', () => {
+  const text = $('shareText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btnCopy.textContent = '✓ Copied!'; btnCopy.classList.add('copied');
+    setTimeout(() => { btnCopy.textContent = '📋 Copy to Clipboard'; btnCopy.classList.remove('copied'); }, 2000);
+  }).catch(() => { btnCopy.textContent = 'Copy failed — try again'; });
+});
+
+// Init timeline dots
+renderTimelineDots();
 </script>
 </body>
 </html>
