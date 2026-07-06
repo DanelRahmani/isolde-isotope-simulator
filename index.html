@@ -292,16 +292,6 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
 .footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
 
-/* Element badge (replaces broken images) */
-.elem-badge {
-  width: 110px; height: 110px; border-radius: 8px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  font-family: 'Open Sans', sans-serif; flex-shrink: 0;
-  background: var(--bg-surface); border: 1px solid var(--border-default);
-}
-.elem-badge .elem-symbol { font-size: 2rem; font-weight: 800; color: var(--accent); }
-.elem-badge .elem-name { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
-.elem-badge .elem-num { font-size: 0.55rem; color: var(--text-muted); margin-top: 0.1rem; }
 </style>
 </head>
 <body>
@@ -406,11 +396,7 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
       <div class="info-placeholder" id="infoPlaceholder">Press FIRE BEAM to begin the ISOLDE timeline</div>
       <div id="infoContent" style="display:none">
         <div class="info-top">
-          <div class="elem-badge" id="elemBadge">
-            <span class="elem-symbol" id="elemSymbol"></span>
-            <span class="elem-name" id="elemName"></span>
-            <span class="elem-num" id="elemNum"></span>
-          </div>
+          <img class="iso-image" id="isoImage" src="" alt="" loading="lazy">
           <div class="info-meta">
             <div class="iso-name" id="isoName"></div>
             <div class="info-row"><span class="label">Element:</span><span class="value" id="isoElement"></span></div>
@@ -509,8 +495,7 @@ const btnFire = $('btnFire'), btnRestart = $('btnRestart'), completionMsg = $('c
 const beamPulse = $('beamPulse'), targetFlash = $('targetFlash'), targetWrap = $('targetWrap');
 const isotopeCircle = $('isotopeCircle'), infoPanel = $('infoPanel');
 const infoPlaceholder = $('infoPlaceholder'), infoContent = $('infoContent');
-const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc');
-const elemSymbol = $('elemSymbol'), elemName = $('elemName'), elemNum = $('elemNum');
+const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc'), isoImage = $('isoImage');
 const isoImpact = $('isoImpact'), isoScience = $('isoScience'), isoApplications = $('isoApplications');
 const progressText = $('progressText'), progressPct = $('progressPct'), progressFill = $('progressFill');
 const autoPlayCheckbox = $('autoPlay'), speedSlider = $('speedSlider'), speedLabel = $('speedLabel');
@@ -542,9 +527,7 @@ function spawnParticles() {
 function showInfoCard(d) {
   isoName.textContent=d.isotope;isoElement.textContent=d.element;
   isoYear.textContent=d.year;isoDesc.textContent=d.discovery;
-  const ed=elemData[d.element];
-  elemSymbol.textContent=ed?ed.sym:'?';elemName.textContent=d.element;
-  elemNum.textContent=ed?`${ed.num}`:'';
+  isoImage.src='images/'+d.element.toLowerCase()+'.svg';isoImage.alt=d.element;
   if(d.science&&d.applications){isoScience.textContent=d.science;isoApplications.textContent=d.applications;isoImpact.style.display='flex';}
   else{isoImpact.style.display='none';}
   infoPlaceholder.style.display='none';infoContent.style.display='block';
