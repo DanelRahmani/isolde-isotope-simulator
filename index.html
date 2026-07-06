@@ -167,6 +167,15 @@ strong{font-weight:700;color:var(--text-primary);}
 .btn-start:hover{background:var(--accent-hover);box-shadow:var(--shadow-glow);transform:translateY(-2px);}
 .btn-start:active{transform:translateY(0);}
 
+/* Facility images */
+.facility-img{width:100%;max-width:700px;border-radius:var(--radius-md);border:1px solid var(--border-subtle);box-shadow:var(--shadow-md);display:block;margin:1.2rem auto;transition:all var(--dur-normal) var(--ease-out);}
+.facility-img:hover{box-shadow:var(--shadow-lg);}
+.facility-caption{text-align:center;font-size:0.7rem;color:var(--text-tertiary);margin-top:-0.8rem;margin-bottom:1rem;}
+.facility-caption a{color:var(--text-tertiary);}
+.facility-row{display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;}
+.facility-row .facility-img{flex:1;min-width:240px;max-width:340px;margin:0.5rem 0;}
+@media(max-width:560px){.facility-row{flex-direction:column;}.facility-row .facility-img{max-width:100%;}}
+
 /* Progress bar */
 .progress-bar-wrap{width:100%;max-width:420px;}
 .progress-label{display:flex;justify-content:space-between;align-items:baseline;font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.4rem;}
@@ -365,6 +374,8 @@ strong{font-weight:700;color:var(--text-primary);}
       <h1>ISOLDE Isotope Discovery Simulator</h1>
       <p class="subtitle">Learn how CERN''s ISOLDE facility studies the building blocks of matter</p>
     </div>
+    <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISOLDE-experimental-hall.jpg?width=700" alt="ISOLDE experimental hall at CERN" loading="lazy" onerror="this.style.display='none'">
+    <p class="facility-caption">ISOLDE experimental hall at CERN. Photo: CERN, CC-BY-4.0</p>
     <div class="learn-section">
       <div class="learn-inner">
         <h3>What is an Atom?</h3>
@@ -398,6 +409,12 @@ strong{font-weight:700;color:var(--text-primary);}
           <div class="isolde-step"><div class="si">🧲</div><div class="st">Isotope Separation</div><div class="sd">Magnets sort isotopes by mass</div></div>
         </div>
         <p>By isolating individual isotopes, scientists measure their mass, shape, decay, and internal structure — revealing how the strong nuclear force binds matter in extreme conditions.</p>
+
+        <div class="facility-row">
+          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Isolde-robots.jpg?width=340" alt="Industrial robots handling ISOLDE targets" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISOLDE_facility_model.jpg?width=340" alt="Model of the ISOLDE facility" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <p class="facility-caption">Left: ISOLDE''s robotic target handlers. Right: Scale model of the facility. Photos: CERN, CC-BY-4.0</p>
 
         <h3>Why does this matter?</h3>
         <ul>
