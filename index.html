@@ -121,26 +121,26 @@ strong{font-weight:700;color:var(--text-primary);}
 .header .subtitle { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem; }
 
 /* Learn page */
-.learn-section{width:100%;max-width:720px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
-.learn-inner{padding:2rem 2rem 1.5rem;}
-.learn-inner h3{font-size:1.1rem;font-weight:700;color:var(--accent);margin:1.5rem 0 0.5rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle);}
+.learn-section{width:100%;max-width:760px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+.learn-inner{padding:2.2rem 2.2rem 1.8rem;}
+.learn-inner h3{font-size:1.15rem;font-weight:700;color:var(--accent);margin:1.8rem 0 0.6rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle);}
 .learn-inner h3:first-child{margin-top:0;padding-top:0;border-top:none;}
-.learn-inner p{font-size:0.9rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.6rem;}
-.learn-inner ul{margin:0.3rem 0 0.8rem 1.2rem;font-size:0.88rem;color:var(--text-secondary);line-height:1.7;}
-.learn-inner li{margin-bottom:0.3rem;}
+.learn-inner p{font-size:0.92rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.7rem;}
+.learn-inner ul{margin:0.3rem 0 0.8rem 1.2rem;font-size:0.9rem;color:var(--text-secondary);line-height:1.75;}
+.learn-inner li{margin-bottom:0.35rem;}
 .learn-inner li strong{color:var(--accent);}
 
 /* Atom diagram */
-.atom-diagram{display:flex;align-items:center;justify-content:center;gap:2rem;margin:1rem 0;padding:1.5rem;background:var(--bg-elevated);border-radius:var(--radius-md);border:1px solid var(--border-subtle);flex-wrap:wrap;}
-.atom-visual{position:relative;width:180px;height:180px;flex-shrink:0;}
+.atom-diagram{display:flex;align-items:center;justify-content:center;gap:2.2rem;margin:1.2rem 0;padding:1.8rem;background:linear-gradient(135deg,var(--bg-elevated),var(--bg-surface));border-radius:var(--radius-md);border:1px solid var(--border-subtle);flex-wrap:wrap;}
+.atom-visual{position:relative;width:200px;height:200px;flex-shrink:0;}
 .atom-nucleus{position:absolute;inset:0;margin:auto;width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff6040,#cc2200);box-shadow:0 0 20px rgba(255,60,20,0.5),0 0 40px rgba(255,60,20,0.15);z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1px;padding:6px;}
 .atom-nucleus .nd{width:7px;height:7px;border-radius:50%;}
 .atom-nucleus .nd.p{background:#ff6040;}
 .atom-nucleus .nd.n{background:#8899bb;}
 .atom-orbit{position:absolute;inset:0;margin:auto;border-radius:50%;border:1.5px solid var(--border-default);}
-.atom-orbit.o1{width:90px;height:90px;animation:orbitSpin 2.2s linear infinite;}
-.atom-orbit.o2{width:130px;height:130px;animation:orbitSpin 3.2s linear infinite reverse;}
-.atom-orbit.o3{width:170px;height:170px;animation:orbitSpin 4.5s linear infinite;}
+.atom-orbit.o1{width:100px;height:100px;animation:orbitSpin 2.2s linear infinite;}
+.atom-orbit.o2{width:145px;height:145px;animation:orbitSpin 3.2s linear infinite reverse;}
+.atom-orbit.o3{width:190px;height:190px;animation:orbitSpin 4.5s linear infinite;}
 @keyframes orbitSpin{to{transform:rotate(360deg)}}
 .atom-electron{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent-glow),0 0 20px rgba(0,80,168,0.25);top:-4.5px;left:50%;margin-left:-4.5px;}
 .atom-labels { font-size: 0.75rem; line-height: 1.6; color: var(--text-secondary); }
@@ -169,10 +169,9 @@ strong{font-weight:700;color:var(--text-primary);}
 
 /* Facility images */
 .facility-img{width:100%;max-width:700px;border-radius:var(--radius-md);border:1px solid var(--border-subtle);box-shadow:var(--shadow-md);display:block;margin:1.2rem auto;transition:all var(--dur-normal) var(--ease-out);}
-.facility-img:hover{box-shadow:var(--shadow-lg);}
-.facility-caption{text-align:center;font-size:0.7rem;color:var(--text-tertiary);margin-top:-0.8rem;margin-bottom:1rem;}
-.facility-caption a{color:var(--text-tertiary);}
-.facility-row{display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;}
+.facility-img:hover{box-shadow:var(--shadow-lg);transform:scale(1.005);}
+.facility-caption{text-align:center;font-size:0.72rem;color:var(--text-tertiary);margin-top:-0.4rem;margin-bottom:1.5rem;font-style:italic;line-height:1.5;}
+.facility-row{display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;margin:1rem 0;}
 .facility-row .facility-img{flex:1;min-width:240px;max-width:340px;margin:0.5rem 0;}
 @media(max-width:560px){.facility-row{flex-direction:column;}.facility-row .facility-img{max-width:100%;}}
 
@@ -352,6 +351,15 @@ strong{font-weight:700;color:var(--text-primary);}
 .footer { width: 100%; text-align: center; padding: 1rem; font-size: 0.68rem; color: var(--text-muted); border-top: 1px solid var(--border-default); position: relative; z-index: 1; transition: all 0.5s ease; }
 .footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 </style>
 </head>
@@ -546,7 +554,7 @@ strong{font-weight:700;color:var(--text-primary);}
       <div class="build-result" id="buildResult">
         <div class="br-isotope" id="brIsotope">C-12</div>
         <div class="br-verdict stable" id="brVerdict">Stable</div>
-        <div class="br-detail" id="brDetail">Carbon-12 is the most common isotope of carbon — stable and makes up 98.9% of all natural carbon.</div>
+        <div class="br-detail" id="brDetail">Carbon-12 is the most common isotope of carbon: it is stable and makes up 98.9% of all natural carbon.</div>
       </div>
     </div>
   </div>
@@ -563,7 +571,7 @@ strong{font-weight:700;color:var(--text-primary);}
 </div>
 
 <footer class="footer">
-  Inspired by <a href="https://home.cern/science/experiments/isolde" target="_blank" rel="noopener">CERN''s ISOLDE facility</a> — an educational simulation. Not affiliated with CERN.
+  Inspired by <a href="https://home.cern/science/experiments/isolde" target="_blank" rel="noopener">CERN''s ISOLDE facility</a>. An educational simulation. Not affiliated with CERN.
 </footer>
 
 <script>
@@ -872,11 +880,11 @@ function updateBuildResult() {
   
   let detail = '';
   if (verdict === 'stable') {
-    detail = `${sym}-${a} would be a stable isotope — it could exist indefinitely without decaying.`;
+    detail = `${sym}-${a} is a stable isotope: it could exist indefinitely without decaying.`;
   } else if (verdict === 'radioactive') {
-    detail = `${sym}-${a} would be radioactive — it would decay over time, possibly within fractions of a second. ISOLDE studies isotopes like this to understand nuclear forces.`;
+    detail = `${sym}-${a} is radioactive and would decay over time, possibly within fractions of a second. ISOLDE studies isotopes like this to understand nuclear forces.`;
   } else {
-    detail = `${sym}-${a} is outside the nuclear drip lines — the strong force cannot bind ${n} neutrons with ${z} protons. This combination would fly apart instantly.`;
+    detail = `${sym}-${a} is outside the nuclear drip lines. The strong force cannot bind ${n} neutrons with ${z} protons; this combination would fly apart instantly.`;
   }
   $('brDetail').textContent = detail;
 }
