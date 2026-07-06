@@ -384,8 +384,6 @@ strong{font-weight:700;color:var(--text-primary);}
       <h1>ISOLDE Isotope Discovery Simulator</h1>
       <p class="subtitle">Learn how CERN''s ISOLDE facility studies the building blocks of matter</p>
     </div>
-    <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISOLDE-experimental-hall.jpg?width=700" alt="ISOLDE experimental hall at CERN" loading="lazy" onerror="this.style.display='none'">
-    <p class="facility-caption">ISOLDE experimental hall at CERN. Photo: CERN, CC-BY-4.0</p>
     <div class="learn-section">
       <div class="learn-inner">
         <h3>What is an Atom?</h3>
@@ -421,14 +419,14 @@ strong{font-weight:700;color:var(--text-primary);}
         <p>By isolating individual isotopes, scientists measure their mass, shape, decay, and internal structure — revealing how the strong nuclear force binds matter in extreme conditions.</p>
 
         <div class="facility-row">
-          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISOLDE_target.jpg?width=340" alt="Irradiated ISOLDE tantalum target" loading="lazy" onerror="this.style.display='none'">
-          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISOLDE_1968.jpg?width=340" alt="ISOLDE facility at CERN in 1968" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="images/facility/isolde-target.jpg" alt="Irradiated ISOLDE tantalum target" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="images/facility/isolde-1968.jpg" alt="ISOLDE facility at CERN in 1968" loading="lazy" onerror="this.style.display='none'">
         </div>
         <p class="facility-caption">Left: An irradiated ISOLDE target after proton bombardment. Right: The ISOLDE facility in 1968, one year after first beam. Photos: CERN, CC-BY-4.0</p>
 
         <div class="facility-row">
-          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Isolde-robots.jpg?width=340" alt="Industrial robots handling ISOLDE targets" loading="lazy" onerror="this.style.display='none'">
-          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISOLDE_facility_model.jpg?width=340" alt="Model of the ISOLDE facility" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="images/facility/isolde-robots.jpg" alt="Industrial robots handling ISOLDE targets" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="images/facility/isolde-facility-model.jpg" alt="Model of the ISOLDE facility" loading="lazy" onerror="this.style.display='none'">
         </div>
         <p class="facility-caption">Left: ISOLDE''s robotic target handlers. Right: Scale model of the facility layout. Photos: CERN, CC-BY-4.0</p>
 
@@ -441,8 +439,8 @@ strong{font-weight:700;color:var(--text-primary);}
         </ul>
 
         <div class="facility-row">
-          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/MEDICIS_Robot.jpg?width=340" alt="MEDICIS robot for medical isotope production" loading="lazy" onerror="this.style.display='none'">
-          <img class="facility-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Isolde_Excavation.jpg?width=340" alt="Excavation of ISOLDE underground hall in 1966" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="images/facility/medicis-robot.jpg" alt="MEDICIS robot for medical isotope production" loading="lazy" onerror="this.style.display='none'">
+          <img class="facility-img" src="images/facility/isolde-excavation.jpg" alt="Excavation of ISOLDE underground hall in 1966" loading="lazy" onerror="this.style.display='none'">
         </div>
         <p class="facility-caption">Left: CERN-MEDICIS facility producing medical isotopes. Right: Excavation of the ISOLDE experimental hall in 1966. Photos: CERN, CC-BY-4.0</p>
       </div>
@@ -784,7 +782,7 @@ function renderGallery() {
     const card = document.createElement('div');
     card.className = 'gallery-card' + (collected ? ' collected' : ' locked');
     card.innerHTML = collected
-      ? `<img src="images/${d.element.toLowerCase()}.svg" alt="${d.element}"><div class="g-name">${d.isotope}</div><div class="g-element">${d.element}</div><div class="g-year">Discovered ${d.year}</div>`
+      ? `<img src="images/elements/${d.element.toLowerCase()}.jpg" alt="${d.element}" onerror="this.src='images/${d.element.toLowerCase()}.svg';this.onerror=null"><div class="g-name">${d.isotope}</div><div class="g-element">${d.element}</div><div class="g-year">Discovered ${d.year}</div>`
       : `<div class="g-placeholder">?</div><div class="g-name">???</div><div class="g-element">Undiscovered</div><div class="g-year"></div>`;
     grid.appendChild(card);
   });
@@ -937,7 +935,8 @@ function spawnParticles() {
 function showInfoCard(d) {
   isoName.textContent=d.isotope;isoElement.textContent=d.element;
   isoYear.textContent=d.year;isoDesc.textContent=d.discovery;
-  isoImage.src='images/'+d.element.toLowerCase()+'.svg';isoImage.alt=d.element;
+  isoImage.src='images/elements/'+d.element.toLowerCase()+'.jpg';isoImage.alt=d.element;
+  isoImage.onerror=function(){this.src='images/'+d.element.toLowerCase()+'.svg';this.onerror=null;};
   // Decay info
   const dec = decayMap[d.isotope];
   const decayEl = $('isoDecay');
