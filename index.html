@@ -453,6 +453,100 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
   text-align: center; margin-top: 0.8rem; font-size: 0.85rem;
 }
 
+/* Atom diagram */
+.atom-diagram {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; margin: 0.8rem 0; padding: 1rem;
+  background: var(--bg-surface); border-radius: 10px;
+  border: 1px solid var(--border-default);
+  flex-wrap: wrap;
+}
+.atom-visual {
+  position: relative; width: 160px; height: 160px; flex-shrink: 0;
+}
+.atom-nucleus {
+  position: absolute; top: 50%; left: 50%;
+  width: 44px; height: 44px; margin: -22px 0 0 -22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff6040, #cc2200);
+  box-shadow: 0 0 12px rgba(255,60,20,0.4);
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 1px; padding: 4px;
+  z-index: 2;
+}
+.atom-nucleus .nuc-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.atom-nucleus .nuc-dot.proton { background: #ff6040; }
+.atom-nucleus .nuc-dot.neutron { background: #8899bb; }
+.atom-orbit {
+  position: absolute; top: 50%; left: 50%;
+  border-radius: 50%;
+  border: 1px solid var(--border-default);
+  transform: translate(-50%, -50%);
+}
+.atom-orbit.o1 { width: 80px; height: 80px; }
+.atom-orbit.o2 { width: 120px; height: 120px; }
+.atom-orbit.o3 { width: 155px; height: 155px; }
+.atom-electron {
+  position: absolute;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+.atom-orbit.o1 .atom-electron { top: -4px; left: 50%; margin-left: -4px; animation: electronOrbit1 2s linear infinite; }
+.atom-orbit.o2 .atom-electron { top: -4px; left: 50%; margin-left: -4px; animation: electronOrbit2 3s linear infinite; }
+.atom-orbit.o3 .atom-electron { top: -4px; left: 50%; margin-left: -4px; animation: electronOrbit3 4s linear infinite; }
+@keyframes electronOrbit1 {
+  from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+@keyframes electronOrbit2 {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+@keyframes electronOrbit3 {
+  from { transform: rotate(0deg) translateX(77.5px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(77.5px) rotate(-360deg); }
+}
+.atom-labels {
+  font-size: 0.75rem; line-height: 1.6; color: var(--text-secondary);
+}
+.atom-labels span { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem; }
+.atom-labels .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.atom-labels .dot.e { background: var(--accent); box-shadow: 0 0 5px var(--accent-glow); }
+.atom-labels .dot.p { background: #ff6040; }
+.atom-labels .dot.n { background: #8899bb; }
+
+/* ISOLDE process diagram */
+.isolde-flow {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem; margin: 0.8rem 0; padding: 0.8rem;
+  background: var(--bg-surface); border-radius: 10px;
+  border: 1px solid var(--border-default);
+  flex-wrap: wrap;
+}
+.isolde-step {
+  text-align: center; padding: 0.6rem 0.8rem;
+  background: var(--bg-card); border: 1px solid var(--border-default);
+  border-radius: 8px; min-width: 100px;
+  transition: all 0.3s ease;
+}
+.isolde-step .step-icon { font-size: 1.6rem; margin-bottom: 0.2rem; }
+.isolde-step .step-title {
+  font-weight: 700; font-size: 0.72rem; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.isolde-step .step-desc { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; }
+.isolde-arrow {
+  font-size: 1.2rem; color: var(--accent);
+  animation: arrowPulse 1s ease-in-out infinite;
+}
+@keyframes arrowPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
 .controls {
   display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
 }
@@ -558,14 +652,51 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
     </button>
     <div class="learn-content">
       <div class="learn-inner">
-        <h3>What is Nuclear Physics?</h3>
-        <p>Nuclear physics studies the tiny, dense core of every atom — the <strong>nucleus</strong>. Each nucleus contains protons (positively charged) and neutrons (neutral), held together by the <strong>strong nuclear force</strong>. An <strong>isotope</strong> is a variant of an element with the same number of protons but a different number of neutrons. While there are about 250 stable isotopes in nature, physicists have predicted <strong>thousands more</strong> that are radioactive and decay within fractions of a second. Studying these exotic nuclei helps us understand why matter exists the way it does.</p>
+        <h3>What is an Atom?</h3>
+        <p>Everything you see, touch, and breathe is made of <strong>atoms</strong> — the basic building blocks of matter. Each atom has a tiny, dense <strong>nucleus</strong> at its centre, made of <strong>protons</strong> (positive charge) and <strong>neutrons</strong> (no charge). Whizzing around the nucleus are <strong>electrons</strong> (negative charge), arranged in shells. The number of protons defines which <strong>element</strong> it is (1 = hydrogen, 6 = carbon, 79 = gold). The number of neutrons can vary — these variants are called <strong>isotopes</strong>.</p>
+        <div class="atom-diagram">
+          <div class="atom-visual">
+            <div class="atom-nucleus">
+              <span class="nuc-dot proton"></span><span class="nuc-dot proton"></span><span class="nuc-dot proton"></span>
+              <span class="nuc-dot proton"></span><span class="nuc-dot proton"></span><span class="nuc-dot proton"></span>
+              <span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span>
+              <span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span>
+            </div>
+            <div class="atom-orbit o1"><div class="atom-electron"></div></div>
+            <div class="atom-orbit o2"><div class="atom-electron"></div></div>
+            <div class="atom-orbit o3"><div class="atom-electron"></div></div>
+          </div>
+          <div class="atom-labels">
+            <span><span class="dot e"></span> Electron (negative)</span>
+            <span><span class="dot p"></span> Proton (positive)</span>
+            <span><span class="dot n"></span> Neutron (neutral)</span>
+            <span style="font-size:0.7rem;color:var(--text-muted);margin-top:0.3rem">Example: Carbon-12 atom<br>6 protons + 6 neutrons + 6 electrons</span>
+          </div>
+        </div>
+        <p>While about 250 isotopes are stable in nature, physicists have predicted <strong>thousands more</strong> radioactive ones that decay in fractions of a second. Studying these exotic nuclei — the domain of <strong>nuclear physics</strong> — helps us understand why matter exists the way it does.</p>
 
-        <h3>What is CERN?</h3>
-        <p>CERN is the European Organization for Nuclear Research, home to the <strong>Large Hadron Collider (LHC)</strong> — the world's largest particle accelerator. But CERN is much more than the LHC. It hosts a dozen experiments studying everything from antimatter to cosmic rays, and it's where the <strong>World Wide Web was invented in 1989</strong>. Scientists from over 100 countries collaborate at CERN to answer fundamental questions about the Universe.</p>
-
-        <h3>What is ISOLDE?</h3>
-        <p>ISOLDE (Isotope Separator On-Line DEvice) is a unique facility at CERN that has been operating since <strong>1967</strong>. It works by firing a <strong>high-energy proton beam</strong> from CERN's accelerator complex into a heavy metal target. The collision shatters atomic nuclei, creating a spray of exotic, radioactive isotopes — isotopes that don't exist naturally on Earth. Magnetic fields separate these isotopes by mass, allowing scientists to study them one at a time. ISOLDE has produced and studied <strong>over 1,300 different isotopes</strong>, making it one of the world's most prolific isotope factories.</p>
+        <h3>How does ISOLDE work?</h3>
+        <p>ISOLDE (Isotope Separator On-Line DEvice) has operated at CERN since <strong>1967</strong>. It fires a <strong>high-energy proton beam</strong> from CERN's accelerator complex into a heavy metal target. The collision <strong>shatters atomic nuclei</strong>, creating a spray of exotic radioactive isotopes that don't exist naturally on Earth. Then, powerful <strong>magnetic fields</strong> separate these isotopes by mass — like a prism splitting light into colours, but for atoms. ISOLDE has produced and studied <strong>over 1,300 different isotopes</strong>.</p>
+        <div class="isolde-flow">
+          <div class="isolde-step">
+            <div class="step-icon">⚡</div>
+            <div class="step-title">Proton Beam</div>
+            <div class="step-desc">High-energy protons fired from CERN's accelerator</div>
+          </div>
+          <div class="isolde-arrow">→</div>
+          <div class="isolde-step">
+            <div class="step-icon">💥</div>
+            <div class="step-title">Target Collision</div>
+            <div class="step-desc">Beam strikes heavy metal target, shattering nuclei</div>
+          </div>
+          <div class="isolde-arrow">→</div>
+          <div class="isolde-step">
+            <div class="step-icon">🧲</div>
+            <div class="step-title">Isotope Separation</div>
+            <div class="step-desc">Magnets sort isotopes by mass for study</div>
+          </div>
+        </div>
+        <p>By isolating individual isotopes, scientists can measure their mass, shape, decay pattern, and internal structure — revealing how the strong nuclear force binds protons and neutrons together in extreme conditions.</p>
 
         <h3>Why does this matter?</h3>
         <ul>
