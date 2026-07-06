@@ -10,82 +10,44 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ===================== THEME: DARK (default) ===================== */
+/* ===================== THEME: DARK ===================== */
 :root, [data-theme="dark"] {
-  --cern-blue: #0050A8;
-  --cern-blue-light: #1a6fc4;
-  --cern-blue-dim: rgba(0, 80, 168, 0.15);
-  --cern-blue-glow: rgba(0, 80, 168, 0.5);
-  --bg-body: #0a0e1a;
-  --bg-surface: #111627;
-  --bg-card: #181d33;
-  --bg-card-hover: #1e2340;
-  --text-primary: #e8ecf4;
-  --text-secondary: #8b95b0;
-  --text-muted: #5a6680;
-  --border-default: #1e2840;
-  --border-accent: #004a9c;
-  --accent: #0050A8;
-  --accent-glow: rgba(0, 80, 168, 0.4);
-  --beam-color: #4da6ff;
-  --beam-glow: rgba(77, 166, 255, 0.6);
-  --target-metal: #3d4560;
-  --target-metal-light: #5a6280;
-  --target-metal-dark: #252a40;
-  --target-core: #ff8c00;
-  --target-core-inner: #cc5500;
-  --target-core-dark: #883300;
-  --toolbar-bg: #050812;
-  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
-  --star-opacity: 0.5;
+  --cern-blue: #0050A8; --cern-blue-light: #1a6fc4;
+  --cern-blue-dim: rgba(0,80,168,0.15); --cern-blue-glow: rgba(0,80,168,0.5);
+  --bg-body: #0a0e1a; --bg-surface: #111627; --bg-card: #181d33;
+  --text-primary: #e8ecf4; --text-secondary: #8b95b0; --text-muted: #5a6680;
+  --border-default: #1e2840; --border-accent: #004a9c;
+  --accent: #0050A8; --accent-glow: rgba(0,80,168,0.4);
+  --beam-color: #4da6ff; --beam-glow: rgba(77,166,255,0.6);
+  --target-metal: #3d4560; --target-metal-light: #5a6280; --target-metal-dark: #252a40;
+  --target-core: #ff8c00; --target-core-inner: #cc5500; --target-core-dark: #883300;
+  --toolbar-bg: #050812; --shadow-card: 0 4px 24px rgba(0,0,0,0.4); --star-opacity: 0.5;
 }
-
-/* ===================== THEME: LIGHT ===================== */
 [data-theme="light"] {
-  --cern-blue: #0050A8;
-  --cern-blue-light: #1a6fc4;
-  --cern-blue-dim: rgba(0, 80, 168, 0.08);
-  --cern-blue-glow: rgba(0, 80, 168, 0.25);
-  --bg-body: #f4f6fa;
-  --bg-surface: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f0f4fc;
-  --text-primary: #1a1d2e;
-  --text-secondary: #556080;
-  --text-muted: #8890aa;
-  --border-default: #d8dce6;
-  --border-accent: #0050A8;
-  --accent: #0050A8;
-  --accent-glow: rgba(0, 80, 168, 0.2);
-  --beam-color: #0050A8;
-  --beam-glow: rgba(0, 80, 168, 0.5);
-  --target-metal: #c8cdd8;
-  --target-metal-light: #dde1e8;
-  --target-metal-dark: #a0a8b8;
-  --target-core: #e07800;
-  --target-core-inner: #bb4400;
-  --target-core-dark: #772200;
-  --toolbar-bg: #e8ecf4;
-  --shadow-card: 0 2px 16px rgba(0,0,0,0.08);
-  --star-opacity: 0;
+  --cern-blue: #0050A8; --cern-blue-light: #1a6fc4;
+  --cern-blue-dim: rgba(0,80,168,0.08); --cern-blue-glow: rgba(0,80,168,0.25);
+  --bg-body: #f4f6fa; --bg-surface: #ffffff; --bg-card: #ffffff;
+  --text-primary: #1a1d2e; --text-secondary: #556080; --text-muted: #8890aa;
+  --border-default: #d8dce6; --border-accent: #0050A8;
+  --accent: #0050A8; --accent-glow: rgba(0,80,168,0.2);
+  --beam-color: #0050A8; --beam-glow: rgba(0,80,168,0.5);
+  --target-metal: #c8cdd8; --target-metal-light: #dde1e8; --target-metal-dark: #a0a8b8;
+  --target-core: #e07800; --target-core-inner: #bb4400; --target-core-dark: #772200;
+  --toolbar-bg: #e8ecf4; --shadow-card: 0 2px 16px rgba(0,0,0,0.08); --star-opacity: 0;
 }
 
 body {
   font-family: 'Source Sans 3', system-ui, sans-serif;
-  background: var(--bg-body);
-  color: var(--text-primary);
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
+  background: var(--bg-body); color: var(--text-primary);
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; overflow-x: hidden;
   transition: background 0.5s ease, color 0.5s ease;
 }
 h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
 
 .stars {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  opacity: var(--star-opacity);
-  transition: opacity 0.5s ease;
+  opacity: var(--star-opacity); transition: opacity 0.5s ease;
   background:
     radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6), transparent),
     radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.5), transparent),
@@ -101,18 +63,15 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
     radial-gradient(1.5px 1.5px at 80% 5%, rgba(255,255,255,0.6), transparent);
 }
 
+/* Toolbar */
 .toolbar {
-  width: 100%; background: var(--toolbar-bg);
-  border-bottom: 1px solid var(--border-default);
-  padding: 0.4rem 1rem;
-  display: flex; align-items: center; justify-content: space-between;
-  position: relative; z-index: 10;
-  transition: background 0.5s ease;
+  width: 100%; background: var(--toolbar-bg); border-bottom: 1px solid var(--border-default);
+  padding: 0.4rem 1rem; display: flex; align-items: center; justify-content: space-between;
+  position: relative; z-index: 10; transition: background 0.5s ease;
 }
 .toolbar-left { display: flex; align-items: center; gap: 0.6rem; }
 .toolbar-left .tag {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.7rem; font-weight: 700;
+  font-family: 'Open Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
   color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
 }
 .toolbar-left .sep { width: 1px; height: 16px; background: var(--border-default); }
@@ -126,490 +85,223 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
+/* Container + Pages */
 .container {
-  position: relative; z-index: 1;
-  width: 100%; max-width: 960px;
-  padding: 1.2rem 1rem 2rem;
-  display: flex; flex-direction: column; align-items: center; gap: 1rem;
-  flex: 1;
+  position: relative; z-index: 1; width: 100%; max-width: 960px;
+  padding: 1.2rem 1rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; flex: 1;
+}
+.page {
+  display: none; flex-direction: column; align-items: center; gap: 1rem; width: 100%;
+  animation: pageFadeIn 0.4s ease;
+}
+.page.active { display: flex; }
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* Header */
 .header { text-align: center; }
 .header h1 {
-  font-size: clamp(1.3rem, 3vw, 2rem);
-  font-weight: 800; color: var(--accent); letter-spacing: -0.02em;
+  font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 800; color: var(--accent); letter-spacing: -0.02em;
 }
 .header .subtitle { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem; }
-.header .disclaimer {
-  font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem;
-  max-width: 640px; line-height: 1.45; font-style: italic;
-}
 
-.progress-bar-wrap { width: 100%; max-width: 400px; }
-.progress-label {
-  display: flex; justify-content: space-between;
-  font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.25rem; font-weight: 600;
-}
-.progress-track {
-  height: 6px; background: var(--border-default); border-radius: 3px; overflow: hidden;
-}
-.progress-fill {
-  height: 100%; background: var(--accent); border-radius: 3px;
-  transition: width 0.5s ease; position: relative;
-}
-.progress-fill::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: shimmer 2s infinite;
-}
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.beamline {
-  position: relative; width: 100%; min-height: 240px;
-  display: flex; align-items: center; justify-content: center; gap: 0;
-  padding: 0.5rem 0;
-}
-@media (max-width: 700px) {
-  .beamline { flex-direction: column; min-height: auto; gap: 0.3rem; padding: 0.5rem 0; }
-}
-
-.accelerator {
-  position: relative; z-index: 2;
-  display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
-}
-.acc-body {
-  width: 70px; height: 90px;
-  background: linear-gradient(180deg, var(--target-metal-light) 0%, var(--target-metal) 50%, var(--target-metal-dark) 100%);
-  border: 2px solid var(--border-default); border-radius: 8px 4px 4px 8px;
-  position: relative; transition: all 0.5s ease;
-}
-.acc-body::after {
-  content: ''; position: absolute; top: 50%; right: -8px;
-  width: 12px; height: 24px; background: var(--target-metal);
-  border-radius: 0 4px 4px 0; transform: translateY(-50%);
-}
-.acc-ring {
-  width: 56px; height: 12px; margin: 4px 0;
-  background: linear-gradient(180deg, var(--target-metal-light), var(--target-metal-dark));
-  border: 1px solid var(--border-default); border-radius: 50%;
-  position: relative; transition: all 0.5s ease;
-}
-.acc-ring:first-of-type { margin-top: 8px; }
-.acc-ring::after {
-  content: ''; position: absolute; inset: 2px; border-radius: 50%;
-  background: var(--accent); opacity: 0; transition: opacity 0.4s ease;
-}
-.acc-ring.pulse::after { animation: ringGlow 1.2s ease-in-out infinite; }
-.acc-ring:nth-child(1).pulse::after { animation-delay: 0s; }
-.acc-ring:nth-child(3).pulse::after { animation-delay: 0.6s; }
-@keyframes ringGlow {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 0.5; }
-}
-.acc-label {
-  font-size: 0.6rem; color: var(--text-muted); margin-top: 6px;
-  text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600;
-}
-
-.beam-track {
-  position: relative; z-index: 1;
-  width: 100%; max-width: 300px; height: 4px;
-  background: var(--border-default); border-radius: 2px; flex-shrink: 1;
-  overflow: visible;
-}
-.beam-track::before {
-  content: ''; position: absolute; inset: 0; border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0.15; animation: trackBreathe 2s ease-in-out infinite;
-}
-@keyframes trackBreathe {
-  0%, 100% { opacity: 0.08; }
-  50% { opacity: 0.25; }
-}
-@media (max-width: 700px) {
-  .beam-track { width: 4px; height: 60px; max-width: none; }
-  .beam-track::before { background: linear-gradient(0deg, transparent, var(--accent), transparent); }
-}
-.beam-pulse {
-  position: absolute; top: 50%; left: 0;
-  width: 0; height: 6px; background: var(--beam-color);
-  border-radius: 3px;
-  box-shadow: 0 0 16px var(--beam-glow), 0 0 40px var(--beam-glow);
-  transform: translateY(-50%); transition: none;
-}
-.beam-pulse.firing {
-  animation: beamFire 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-@media (max-width: 700px) {
-  .beam-pulse { top: 0; left: 50%; width: 6px; height: 0; transform: translateX(-50%); }
-  .beam-pulse.firing { animation: beamFireVertical 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; }
-}
-@keyframes beamFire {
-  0%   { left: 0; width: 0; opacity: 1; }
-  75%  { left: 0; width: 100%; opacity: 1; }
-  100% { left: 100%; width: 0; opacity: 0; }
-}
-@keyframes beamFireVertical {
-  0%   { top: 0; height: 0; opacity: 1; }
-  75%  { top: 0; height: 100%; opacity: 1; }
-  100% { top: 100%; height: 0; opacity: 0; }
-}
-
-.target-wrap { position: relative; z-index: 2; flex-shrink: 0; }
-.target-block {
-  width: 80px; height: 100px;
-  background: linear-gradient(180deg, var(--target-metal-light) 0%, var(--target-metal) 30%, var(--target-metal-light) 60%, var(--target-metal-dark) 100%);
-  border: 2px solid var(--border-default); border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; transition: all 0.5s ease;
-}
-.target-inner {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: radial-gradient(circle, var(--target-core) 0%, var(--target-core-inner) 60%, var(--target-core-dark) 100%);
-  border: 2px solid var(--target-core-dark); position: relative;
-  animation: targetIdle 3s ease-in-out infinite;
-}
-@keyframes targetIdle {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-}
-.target-ring {
-  position: absolute; border-radius: 50%;
-  border: 1px solid rgba(255,150,0,0.2);
-  animation: ringPulse 3s ease-in-out infinite;
-}
-.target-ring:nth-child(2) { width: 60px; height: 60px; animation-delay: 0.5s; }
-.target-ring:nth-child(3) { width: 76px; height: 76px; animation-delay: 1s; }
-@keyframes ringPulse {
-  0%, 100% { border-color: rgba(255,150,0,0.15); }
-  50% { border-color: rgba(255,150,0,0.35); }
-}
-.target-label {
-  font-size: 0.6rem; color: var(--text-muted); margin-top: 4px;
-  text-transform: uppercase; letter-spacing: 0.1em; text-align: center; font-weight: 600;
-}
-
-.target-flash {
-  position: absolute; inset: 0; border-radius: 6px;
-  background: radial-gradient(circle, rgba(0,80,168,0.9) 0%, rgba(0,80,168,0) 70%);
-  opacity: 0; pointer-events: none;
-}
-.target-flash.active { animation: flashBurst 0.5s ease-out forwards; }
-@keyframes flashBurst {
-  0% { opacity: 0; transform: scale(0.5); }
-  35% { opacity: 1; transform: scale(1.3); }
-  100% { opacity: 0; transform: scale(1.6); }
-}
-
-.particle { position: fixed; z-index: 10; border-radius: 50%; pointer-events: none; }
-
-.isotope-display {
-  position: relative; z-index: 2; flex-shrink: 0;
-  display: flex; flex-direction: column; align-items: center; min-width: 90px;
-}
-.isotope-circle {
-  width: 76px; height: 76px; border-radius: 50%;
-  border: 2px solid var(--border-default); background: var(--bg-card);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.85rem; font-weight: 800; color: var(--text-muted);
-  transition: all 0.5s ease; position: relative;
-}
-.isotope-orbit {
-  position: absolute; inset: -8px; border-radius: 50%;
-  border: 1px dashed transparent; pointer-events: none; opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.isotope-circle.revealed .isotope-orbit {
-  opacity: 0.6; border-color: var(--accent);
-  animation: orbitSpin 3s linear infinite;
-}
-.isotope-orbiter {
-  position: absolute; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--accent); top: -2.5px; left: 50%; margin-left: -2.5px;
-  box-shadow: 0 0 6px var(--accent-glow);
-}
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.isotope-circle.revealed {
-  border-color: var(--accent);
-  box-shadow: 0 0 24px var(--accent-glow), 0 0 50px rgba(0,80,168,0.1);
-  color: var(--accent);
-  animation: isotopePop 0.45s ease-out;
-}
-@keyframes isotopePop {
-  0%   { transform: scale(0.2); opacity: 0; }
-  55%  { transform: scale(1.18); }
-  100% { transform: scale(1); opacity: 1; }
-}
-.isotope-label {
-  font-size: 0.6rem; color: var(--text-muted); margin-top: 6px;
-  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
-}
-
-.info-panel {
-  width: 100%; max-width: 500px; min-height: 140px;
-  background: var(--bg-card); border: 1px solid var(--border-default);
-  border-radius: 12px; padding: 1.3rem 1.5rem;
-  opacity: 0; transform: translateY(16px) scale(0.97);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-card);
-}
-.info-panel.visible {
-  opacity: 1; transform: translateY(0) scale(1);
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-card), 0 0 20px var(--accent-glow);
-}
-.info-panel .iso-name {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem; font-weight: 800; color: var(--accent);
-}
-.info-panel .info-top {
-  display: flex; gap: 1rem; align-items: flex-start;
-}
-.info-panel .iso-image {
-  width: 110px; height: 110px; object-fit: cover;
-  border-radius: 8px; border: 1px solid var(--border-default);
-  flex-shrink: 0;
-  background: var(--bg-surface);
-}
-.info-panel .info-meta { flex: 1; min-width: 0; }
-@media (max-width: 480px) {
-  .info-panel .info-top { flex-direction: column; align-items: center; }
-  .info-panel .iso-image { width: 100%; max-width: 200px; height: auto; aspect-ratio: 1; }
-}
-.info-panel .info-row {
-  display: flex; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.88rem;
-}
-.info-panel .info-row .label { color: var(--text-muted); min-width: 72px; font-weight: 600; }
-.info-panel .info-row .value { color: var(--text-primary); font-weight: 600; }
-.info-panel .info-desc {
-  margin-top: 0.7rem; font-size: 0.84rem;
-  color: var(--text-secondary); line-height: 1.55;
-}
-.info-desc strong { color: var(--accent); }
-.info-placeholder {
-  display: flex; align-items: center; justify-content: center;
-  height: 100%; min-height: 110px;
-  color: var(--text-muted); font-size: 0.85rem;
-}
-.info-impact {
-  margin-top: 0.8rem; padding-top: 0.8rem;
-  border-top: 1px solid var(--border-default);
-  display: flex; flex-direction: column; gap: 0.55rem;
-}
-.info-impact-row { font-size: 0.82rem; line-height: 1.45; }
-.info-impact-row .impact-label {
-  color: var(--accent); font-weight: 700; font-size: 0.72rem;
-  text-transform: uppercase; letter-spacing: 0.05em;
-  display: block; margin-bottom: 0.15rem;
-}
-.info-impact-row .impact-text { color: var(--text-secondary); }
-
-/* Learn section */
+/* Learn page */
 .learn-section {
   width: 100%; max-width: 700px;
-  border: 1px solid var(--border-default); border-radius: 10px;
-  background: var(--bg-card);
-  overflow: hidden;
-  transition: all 0.3s ease;
+  border: 1px solid var(--border-default); border-radius: 10px; background: var(--bg-card); overflow: hidden;
 }
-.learn-toggle {
-  width: 100%; padding: 0.8rem 1.2rem;
-  font-family: 'Open Sans', sans-serif; font-size: 0.9rem; font-weight: 700;
-  color: var(--text-primary); background: none; border: none;
-  cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-  gap: 0.5rem; text-align: left;
-  transition: background 0.2s ease;
-}
-.learn-toggle:hover { background: var(--cern-blue-dim); }
-.learn-toggle .learn-arrow {
-  font-size: 0.7rem; transition: transform 0.3s ease; color: var(--accent);
-}
-.learn-section.open .learn-arrow { transform: rotate(180deg); }
-.learn-content {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.learn-section.open .learn-content { max-height: 1200px; }
 .learn-inner {
-  padding: 0 1.2rem 1.2rem;
-  font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;
+  padding: 1.2rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;
 }
-.learn-inner h3 {
-  font-size: 0.95rem; color: var(--accent); margin: 1rem 0 0.4rem;
-}
+.learn-inner h3 { font-size: 0.95rem; color: var(--accent); margin: 1rem 0 0.4rem; }
 .learn-inner h3:first-child { margin-top: 0; }
 .learn-inner p { margin-bottom: 0.5rem; }
 .learn-inner ul { margin: 0.3rem 0 0.5rem 1.2rem; }
 .learn-inner li { margin-bottom: 0.25rem; }
-.learn-cta {
-  font-weight: 700; color: var(--accent);
-  text-align: center; margin-top: 0.8rem; font-size: 0.85rem;
-}
 
 /* Atom diagram */
 .atom-diagram {
-  display: flex; align-items: center; justify-content: center;
-  gap: 1.5rem; margin: 0.8rem 0; padding: 1rem;
-  background: var(--bg-surface); border-radius: 10px;
-  border: 1px solid var(--border-default);
-  flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+  margin: 0.8rem 0; padding: 1rem; background: var(--bg-surface);
+  border-radius: 10px; border: 1px solid var(--border-default); flex-wrap: wrap;
 }
-.atom-visual {
-  position: relative; width: 160px; height: 160px; flex-shrink: 0;
-}
+.atom-visual { position: relative; width: 160px; height: 160px; flex-shrink: 0; }
 .atom-nucleus {
-  position: absolute; top: 50%; left: 50%;
-  width: 44px; height: 44px; margin: -22px 0 0 -22px;
-  border-radius: 50%;
+  position: absolute; top: 50%; left: 50%; width: 44px; height: 44px;
+  margin: -22px 0 0 -22px; border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #ff6040, #cc2200);
-  box-shadow: 0 0 12px rgba(255,60,20,0.4);
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 1px; padding: 4px;
-  z-index: 2;
+  box-shadow: 0 0 12px rgba(255,60,20,0.4); z-index: 2;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 1px; padding: 5px;
 }
-.atom-nucleus .nuc-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-}
-.atom-nucleus .nuc-dot.proton { background: #ff6040; }
-.atom-nucleus .nuc-dot.neutron { background: #8899bb; }
+.atom-nucleus .nd { width: 6px; height: 6px; border-radius: 50%; }
+.atom-nucleus .nd.p { background: #ff6040; }
+.atom-nucleus .nd.n { background: #8899bb; }
 .atom-orbit {
-  position: absolute; top: 50%; left: 50%;
-  border-radius: 50%;
-  border: 1px solid var(--border-default);
-  transform: translate(-50%, -50%);
+  position: absolute; top: 50%; left: 50%; border-radius: 50%;
+  border: 1px solid var(--border-default); transform-origin: center center;
 }
-.atom-orbit.o1 { width: 80px; height: 80px; }
-.atom-orbit.o2 { width: 120px; height: 120px; }
-.atom-orbit.o3 { width: 155px; height: 155px; }
+.atom-orbit.o1 { width: 80px; height: 80px; margin: -40px 0 0 -40px; animation: oSpin 2s linear infinite; }
+.atom-orbit.o2 { width: 120px; height: 120px; margin: -60px 0 0 -60px; animation: oSpin 3s linear infinite reverse; }
+.atom-orbit.o3 { width: 155px; height: 155px; margin: -77.5px 0 0 -77.5px; animation: oSpin 4s linear infinite; }
+@keyframes oSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .atom-electron {
-  position: absolute;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent-glow);
+  position: absolute; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 8px var(--accent-glow);
+  top: -4px; left: 50%; margin-left: -4px;
 }
-.atom-orbit.o1 .atom-electron { top: -4px; left: 50%; margin-left: -4px; animation: electronOrbit1 2s linear infinite; }
-.atom-orbit.o2 .atom-electron { top: -4px; left: 50%; margin-left: -4px; animation: electronOrbit2 3s linear infinite; }
-.atom-orbit.o3 .atom-electron { top: -4px; left: 50%; margin-left: -4px; animation: electronOrbit3 4s linear infinite; }
-@keyframes electronOrbit1 {
-  from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
-}
-@keyframes electronOrbit2 {
-  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
-}
-@keyframes electronOrbit3 {
-  from { transform: rotate(0deg) translateX(77.5px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(77.5px) rotate(-360deg); }
-}
-.atom-labels {
-  font-size: 0.75rem; line-height: 1.6; color: var(--text-secondary);
-}
+.atom-labels { font-size: 0.75rem; line-height: 1.6; color: var(--text-secondary); }
 .atom-labels span { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem; }
 .atom-labels .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .atom-labels .dot.e { background: var(--accent); box-shadow: 0 0 5px var(--accent-glow); }
 .atom-labels .dot.p { background: #ff6040; }
 .atom-labels .dot.n { background: #8899bb; }
 
-/* ISOLDE process diagram */
+/* ISOLDE flow */
 .isolde-flow {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0.5rem; margin: 0.8rem 0; padding: 0.8rem;
-  background: var(--bg-surface); border-radius: 10px;
-  border: 1px solid var(--border-default);
-  flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  margin: 0.8rem 0; padding: 0.8rem; background: var(--bg-surface);
+  border-radius: 10px; border: 1px solid var(--border-default); flex-wrap: wrap;
 }
 .isolde-step {
-  text-align: center; padding: 0.6rem 0.8rem;
-  background: var(--bg-card); border: 1px solid var(--border-default);
-  border-radius: 8px; min-width: 100px;
-  transition: all 0.3s ease;
+  text-align: center; padding: 0.6rem 0.8rem; background: var(--bg-card);
+  border: 1px solid var(--border-default); border-radius: 8px; min-width: 100px;
 }
-.isolde-step .step-icon { font-size: 1.6rem; margin-bottom: 0.2rem; }
-.isolde-step .step-title {
+.isolde-step .si { font-size: 1.6rem; margin-bottom: 0.2rem; }
+.isolde-step .st {
   font-weight: 700; font-size: 0.72rem; color: var(--accent);
   text-transform: uppercase; letter-spacing: 0.04em;
 }
-.isolde-step .step-desc { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; }
-.isolde-arrow {
-  font-size: 1.2rem; color: var(--accent);
-  animation: arrowPulse 1s ease-in-out infinite;
-}
-@keyframes arrowPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.15); }
-}
+.isolde-step .sd { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; }
+.isolde-arrow { font-size: 1.2rem; color: var(--accent); animation: aPulse 1s ease-in-out infinite; }
+@keyframes aPulse { 0%,100%{opacity:0.4;transform:scale(1)}50%{opacity:1;transform:scale(1.15)} }
 
-.controls {
-  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+/* Start button */
+.btn-start {
+  padding: 1rem 3rem; font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem; font-weight: 800; letter-spacing: 0.08em;
+  color: #fff; background: var(--accent); border: none; border-radius: 8px;
+  cursor: pointer; transition: all 0.25s ease; text-transform: uppercase;
+  position: relative; overflow: hidden;
 }
-.btn-fire {
-  padding: 0.85rem 3.2rem;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.05rem; font-weight: 800;
-  letter-spacing: 0.12em; color: #fff;
-  background: var(--accent); border: none; border-radius: 8px;
-  cursor: pointer; transition: all 0.25s ease;
-  text-transform: uppercase; position: relative; overflow: hidden;
-}
-.btn-fire::after {
+.btn-start::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
   transform: translateX(-100%); transition: transform 0.6s;
 }
+.btn-start:hover::after { transform: translateX(100%); }
+.btn-start:hover { background: var(--cern-blue-light); box-shadow: 0 0 30px var(--accent-glow); transform: translateY(-2px); }
+
+/* Progress bar */
+.progress-bar-wrap { width: 100%; max-width: 400px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.25rem; font-weight: 600; }
+.progress-track { height: 6px; background: var(--border-default); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.5s ease; position: relative; }
+.progress-fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2s infinite; }
+@keyframes shimmer { 0%{transform:translateX(-100%)}100%{transform:translateX(100%)} }
+
+/* Beamline */
+.beamline { position: relative; width: 100%; min-height: 240px; display: flex; align-items: center; justify-content: center; gap: 0; padding: 0.5rem 0; }
+@media (max-width: 700px) { .beamline { flex-direction: column; min-height: auto; gap: 0.3rem; padding: 0.5rem 0; } }
+
+.accelerator { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+.acc-body { width: 70px; height: 90px; background: linear-gradient(180deg, var(--target-metal-light) 0%, var(--target-metal) 50%, var(--target-metal-dark) 100%); border: 2px solid var(--border-default); border-radius: 8px 4px 4px 8px; position: relative; transition: all 0.5s ease; }
+.acc-body::after { content: ''; position: absolute; top: 50%; right: -8px; width: 12px; height: 24px; background: var(--target-metal); border-radius: 0 4px 4px 0; transform: translateY(-50%); }
+.acc-ring { width: 56px; height: 12px; margin: 4px 0; background: linear-gradient(180deg, var(--target-metal-light), var(--target-metal-dark)); border: 1px solid var(--border-default); border-radius: 50%; position: relative; transition: all 0.5s ease; }
+.acc-ring:first-of-type { margin-top: 8px; }
+.acc-ring::after { content: ''; position: absolute; inset: 2px; border-radius: 50%; background: var(--accent); opacity: 0; transition: opacity 0.4s ease; }
+.acc-ring.pulse::after { animation: ringGlow 1.2s ease-in-out infinite; }
+.acc-ring:nth-child(1).pulse::after { animation-delay: 0s; }
+.acc-ring:nth-child(3).pulse::after { animation-delay: 0.6s; }
+@keyframes ringGlow { 0%,100%{opacity:0}50%{opacity:0.5} }
+.acc-label { font-size: 0.6rem; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
+
+.beam-track { position: relative; z-index: 1; width: 100%; max-width: 300px; height: 4px; background: var(--border-default); border-radius: 2px; flex-shrink: 1; overflow: visible; }
+.beam-track::before { content: ''; position: absolute; inset: 0; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.15; animation: trackBreathe 2s ease-in-out infinite; }
+@keyframes trackBreathe { 0%,100%{opacity:0.08}50%{opacity:0.25} }
+@media (max-width: 700px) { .beam-track { width: 4px; height: 60px; max-width: none; } .beam-track::before { background: linear-gradient(0deg, transparent, var(--accent), transparent); } }
+.beam-pulse { position: absolute; top: 50%; left: 0; width: 0; height: 6px; background: var(--beam-color); border-radius: 3px; box-shadow: 0 0 16px var(--beam-glow), 0 0 40px var(--beam-glow); transform: translateY(-50%); transition: none; }
+.beam-pulse.firing { animation: beamFire 0.6s cubic-bezier(0.25,0.1,0.25,1) forwards; }
+@media (max-width: 700px) { .beam-pulse { top: 0; left: 50%; width: 6px; height: 0; transform: translateX(-50%); } .beam-pulse.firing { animation: beamFireV 0.6s cubic-bezier(0.25,0.1,0.25,1) forwards; } }
+@keyframes beamFire { 0%{left:0;width:0;opacity:1}75%{left:0;width:100%;opacity:1}100%{left:100%;width:0;opacity:0} }
+@keyframes beamFireV { 0%{top:0;height:0;opacity:1}75%{top:0;height:100%;opacity:1}100%{top:100%;height:0;opacity:0} }
+
+.target-wrap { position: relative; z-index: 2; flex-shrink: 0; }
+.target-block { width: 80px; height: 100px; background: linear-gradient(180deg, var(--target-metal-light) 0%, var(--target-metal) 30%, var(--target-metal-light) 60%, var(--target-metal-dark) 100%); border: 2px solid var(--border-default); border-radius: 6px; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.5s ease; }
+.target-inner { width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle, var(--target-core) 0%, var(--target-core-inner) 60%, var(--target-core-dark) 100%); border: 2px solid var(--target-core-dark); position: relative; animation: targetIdle 3s ease-in-out infinite; }
+@keyframes targetIdle { 0%,100%{transform:scale(1)}50%{transform:scale(1.04)} }
+.target-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(255,150,0,0.2); animation: ringPulse 3s ease-in-out infinite; }
+.target-ring:nth-child(2) { width: 60px; height: 60px; animation-delay: 0.5s; }
+.target-ring:nth-child(3) { width: 76px; height: 76px; animation-delay: 1s; }
+@keyframes ringPulse { 0%,100%{border-color:rgba(255,150,0,0.15)}50%{border-color:rgba(255,150,0,0.35)} }
+.target-label { font-size: 0.6rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; font-weight: 600; }
+.target-flash { position: absolute; inset: 0; border-radius: 6px; background: radial-gradient(circle, rgba(0,80,168,0.9) 0%, rgba(0,80,168,0) 70%); opacity: 0; pointer-events: none; }
+.target-flash.active { animation: flashBurst 0.5s ease-out forwards; }
+@keyframes flashBurst { 0%{opacity:0;transform:scale(0.5)}35%{opacity:1;transform:scale(1.3)}100%{opacity:0;transform:scale(1.6)} }
+.particle { position: fixed; z-index: 10; border-radius: 50%; pointer-events: none; }
+
+.isotope-display { position: relative; z-index: 2; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; min-width: 90px; }
+.isotope-circle { width: 76px; height: 76px; border-radius: 50%; border: 2px solid var(--border-default); background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-family: 'Open Sans', sans-serif; font-size: 0.85rem; font-weight: 800; color: var(--text-muted); transition: all 0.5s ease; position: relative; }
+.isotope-orbit { position: absolute; inset: -8px; border-radius: 50%; border: 1px dashed transparent; pointer-events: none; opacity: 0; transition: opacity 0.5s ease; }
+.isotope-circle.revealed .isotope-orbit { opacity: 0.6; border-color: var(--accent); animation: oSpin 3s linear infinite; }
+.isotope-orbiter { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); top: -2.5px; left: 50%; margin-left: -2.5px; box-shadow: 0 0 6px var(--accent-glow); }
+.isotope-circle.revealed { border-color: var(--accent); box-shadow: 0 0 24px var(--accent-glow), 0 0 50px rgba(0,80,168,0.1); color: var(--accent); animation: isotopePop 0.45s ease-out; }
+@keyframes isotopePop { 0%{transform:scale(0.2);opacity:0}55%{transform:scale(1.18)}100%{transform:scale(1);opacity:1} }
+.isotope-label { font-size: 0.6rem; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+
+/* Info Card */
+.info-panel { width: 100%; max-width: 500px; min-height: 140px; background: var(--bg-card); border: 1px solid var(--border-default); border-radius: 12px; padding: 1.3rem 1.5rem; opacity: 0; transform: translateY(16px) scale(0.97); transition: all 0.5s cubic-bezier(0.16,1,0.3,1); box-shadow: var(--shadow-card); }
+.info-panel.visible { opacity: 1; transform: translateY(0) scale(1); border-color: var(--border-accent); box-shadow: var(--shadow-card), 0 0 20px var(--accent-glow); }
+.info-panel .iso-name { font-family: 'Open Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+.info-panel .info-top { display: flex; gap: 1rem; align-items: flex-start; }
+.info-panel .iso-image { width: 110px; height: 110px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-default); flex-shrink: 0; background: var(--bg-surface); }
+.info-panel .info-meta { flex: 1; min-width: 0; }
+@media (max-width: 480px) { .info-panel .info-top { flex-direction: column; align-items: center; } .info-panel .iso-image { width: 100%; max-width: 200px; height: auto; aspect-ratio: 1; } }
+.info-panel .info-row { display: flex; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.88rem; }
+.info-panel .info-row .label { color: var(--text-muted); min-width: 72px; font-weight: 600; }
+.info-panel .info-row .value { color: var(--text-primary); font-weight: 600; }
+.info-desc { margin-top: 0.7rem; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; }
+.info-placeholder { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 110px; color: var(--text-muted); font-size: 0.85rem; }
+.info-impact { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 0.55rem; }
+.info-impact-row { font-size: 0.82rem; line-height: 1.45; }
+.info-impact-row .impact-label { color: var(--accent); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem; }
+.info-impact-row .impact-text { color: var(--text-secondary); }
+
+/* Controls */
+.controls { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.btn-fire { padding: 0.85rem 3.2rem; font-family: 'Open Sans', sans-serif; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.12em; color: #fff; background: var(--accent); border: none; border-radius: 8px; cursor: pointer; transition: all 0.25s ease; text-transform: uppercase; position: relative; overflow: hidden; }
+.btn-fire::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%); transform: translateX(-100%); transition: transform 0.6s; }
 .btn-fire:hover:not(:disabled)::after { transform: translateX(100%); }
-.btn-fire:hover:not(:disabled) {
-  background: var(--cern-blue-light);
-  box-shadow: 0 0 30px var(--accent-glow); transform: translateY(-2px);
-}
+.btn-fire:hover:not(:disabled) { background: var(--cern-blue-light); box-shadow: 0 0 30px var(--accent-glow); transform: translateY(-2px); }
 .btn-fire:active:not(:disabled) { transform: translateY(0); }
 .btn-fire:disabled { opacity: 0.35; cursor: not-allowed; }
-
-.btn-restart {
-  padding: 0.6rem 2rem;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.85rem; font-weight: 700;
-  color: var(--accent); background: transparent;
-  border: 2px solid var(--accent); border-radius: 6px;
-  cursor: pointer; transition: all 0.25s ease;
-}
+.btn-restart { padding: 0.6rem 2rem; font-family: 'Open Sans', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--accent); background: transparent; border: 2px solid var(--accent); border-radius: 6px; cursor: pointer; transition: all 0.25s ease; }
 .btn-restart:hover { background: var(--cern-blue-dim); }
-
-.auto-controls {
-  display: flex; align-items: center; gap: 1.2rem;
-  flex-wrap: wrap; justify-content: center;
-}
-.auto-controls label {
-  display: flex; align-items: center; gap: 0.4rem;
-  font-size: 0.8rem; color: var(--text-secondary); cursor: pointer; font-weight: 600;
-}
+.btn-back { padding: 0.5rem 1.5rem; font-family: 'Open Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); background: transparent; border: 1px solid var(--border-default); border-radius: 6px; cursor: pointer; transition: all 0.25s ease; }
+.btn-back:hover { border-color: var(--accent); color: var(--accent); }
+.auto-controls { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+.auto-controls label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-secondary); cursor: pointer; font-weight: 600; }
 .auto-controls input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; }
-.speed-wrap {
-  display: flex; align-items: center; gap: 0.5rem;
-  font-size: 0.75rem; color: var(--text-muted); font-weight: 600;
-}
+.speed-wrap { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
 .speed-wrap input[type="range"] { width: 100px; accent-color: var(--accent); }
+.completion-msg { font-family: 'Open Sans', sans-serif; font-size: 0.9rem; color: var(--accent); font-weight: 700; text-align: center; }
 
-.completion-msg {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.9rem; color: var(--accent); font-weight: 700; text-align: center;
-}
-
-.footer {
-  width: 100%; text-align: center; padding: 1rem;
-  font-size: 0.68rem; color: var(--text-muted);
-  border-top: 1px solid var(--border-default);
-  position: relative; z-index: 1; transition: all 0.5s ease;
-}
+.footer { width: 100%; text-align: center; padding: 1rem; font-size: 0.68rem; color: var(--text-muted); border-top: 1px solid var(--border-default); position: relative; z-index: 1; transition: all 0.5s ease; }
 .footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
+
+/* Element badge (replaces broken images) */
+.elem-badge {
+  width: 110px; height: 110px; border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: 'Open Sans', sans-serif; flex-shrink: 0;
+  background: var(--bg-surface); border: 1px solid var(--border-default);
+}
+.elem-badge .elem-symbol { font-size: 2rem; font-weight: 800; color: var(--accent); }
+.elem-badge .elem-name { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.elem-badge .elem-num { font-size: 0.55rem; color: var(--text-muted); margin-top: 0.1rem; }
 </style>
 </head>
 <body>
@@ -617,50 +309,29 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
 
 <div class="toolbar">
   <div class="toolbar-left">
-    <span class="tag">ISOLDE</span>
-    <span class="sep"></span>
+    <span class="tag">ISOLDE</span><span class="sep"></span>
     <span class="subtitle-sm">Isotope Discovery Timeline</span>
   </div>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">☀️</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
 </div>
 
 <div class="container">
-  <div class="header">
-    <h1>ISOLDE Isotope Discovery Simulator</h1>
-    <p class="subtitle">Fire the proton beam to create and study radioactive isotopes.</p>
-    <p class="disclaimer">
-      ISOLDE did not discover new chemical elements. Instead, it produced and studied radioactive isotopes,
-      allowing scientists to uncover new knowledge about nuclear structure, radioactive decay, and astrophysical processes.
-      Historical details are based on well-documented ISOLDE milestones.
-    </p>
-  </div>
 
-  <div class="progress-bar-wrap">
-    <div class="progress-label">
-      <span id="progressText">Discovery 0 / 15</span>
-      <span id="progressPct">0%</span>
+  <!-- ==================== PAGE 1: LEARN ==================== -->
+  <div class="page active" id="pageLearn">
+    <div class="header">
+      <h1>ISOLDE Isotope Discovery Simulator</h1>
+      <p class="subtitle">Learn how CERN''s ISOLDE facility studies the building blocks of matter</p>
     </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill" style="width:0%"></div>
-    </div>
-  </div>
-
-  <div class="learn-section" id="learnSection">
-    <button class="learn-toggle" id="learnToggle">
-      <span>📚 Learn: Nuclear Physics, ISOLDE &amp; CERN</span>
-      <span class="learn-arrow">▼</span>
-    </button>
-    <div class="learn-content">
+    <div class="learn-section">
       <div class="learn-inner">
         <h3>What is an Atom?</h3>
         <p>Everything you see, touch, and breathe is made of <strong>atoms</strong> — the basic building blocks of matter. Each atom has a tiny, dense <strong>nucleus</strong> at its centre, made of <strong>protons</strong> (positive charge) and <strong>neutrons</strong> (no charge). Whizzing around the nucleus are <strong>electrons</strong> (negative charge), arranged in shells. The number of protons defines which <strong>element</strong> it is (1 = hydrogen, 6 = carbon, 79 = gold). The number of neutrons can vary — these variants are called <strong>isotopes</strong>.</p>
         <div class="atom-diagram">
           <div class="atom-visual">
             <div class="atom-nucleus">
-              <span class="nuc-dot proton"></span><span class="nuc-dot proton"></span><span class="nuc-dot proton"></span>
-              <span class="nuc-dot proton"></span><span class="nuc-dot proton"></span><span class="nuc-dot proton"></span>
-              <span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span>
-              <span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span><span class="nuc-dot neutron"></span>
+              <span class="nd p"></span><span class="nd p"></span><span class="nd p"></span><span class="nd p"></span><span class="nd p"></span><span class="nd p"></span>
+              <span class="nd n"></span><span class="nd n"></span><span class="nd n"></span><span class="nd n"></span><span class="nd n"></span><span class="nd n"></span>
             </div>
             <div class="atom-orbit o1"><div class="atom-electron"></div></div>
             <div class="atom-orbit o2"><div class="atom-electron"></div></div>
@@ -673,160 +344,139 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
             <span style="font-size:0.7rem;color:var(--text-muted);margin-top:0.3rem">Example: Carbon-12 atom<br>6 protons + 6 neutrons + 6 electrons</span>
           </div>
         </div>
-        <p>While about 250 isotopes are stable in nature, physicists have predicted <strong>thousands more</strong> radioactive ones that decay in fractions of a second. Studying these exotic nuclei — the domain of <strong>nuclear physics</strong> — helps us understand why matter exists the way it does.</p>
+        <p>While about 250 isotopes are stable in nature, physicists have predicted <strong>thousands more</strong> radioactive ones that decay in fractions of a second. Studying these exotic nuclei — the domain of <strong>nuclear physics</strong> — helps us understand why matter exists.</p>
 
         <h3>How does ISOLDE work?</h3>
-        <p>ISOLDE (Isotope Separator On-Line DEvice) has operated at CERN since <strong>1967</strong>. It fires a <strong>high-energy proton beam</strong> from CERN's accelerator complex into a heavy metal target. The collision <strong>shatters atomic nuclei</strong>, creating a spray of exotic radioactive isotopes that don't exist naturally on Earth. Then, powerful <strong>magnetic fields</strong> separate these isotopes by mass — like a prism splitting light into colours, but for atoms. ISOLDE has produced and studied <strong>over 1,300 different isotopes</strong>.</p>
+        <p>ISOLDE (Isotope Separator On-Line DEvice) has operated at CERN since <strong>1967</strong>. It fires a <strong>high-energy proton beam</strong> into a heavy metal target. The collision <strong>shatters atomic nuclei</strong>, creating exotic radioactive isotopes that don''t exist naturally on Earth. Powerful <strong>magnetic fields</strong> then separate these isotopes by mass — like a prism splitting light into colours, but for atoms. ISOLDE has produced over <strong>1,300 different isotopes</strong>.</p>
         <div class="isolde-flow">
-          <div class="isolde-step">
-            <div class="step-icon">⚡</div>
-            <div class="step-title">Proton Beam</div>
-            <div class="step-desc">High-energy protons fired from CERN's accelerator</div>
-          </div>
+          <div class="isolde-step"><div class="si">⚡</div><div class="st">Proton Beam</div><div class="sd">High-energy protons from CERN''s accelerator</div></div>
           <div class="isolde-arrow">→</div>
-          <div class="isolde-step">
-            <div class="step-icon">💥</div>
-            <div class="step-title">Target Collision</div>
-            <div class="step-desc">Beam strikes heavy metal target, shattering nuclei</div>
-          </div>
+          <div class="isolde-step"><div class="si">💥</div><div class="st">Target Collision</div><div class="sd">Beam strikes target, shattering nuclei</div></div>
           <div class="isolde-arrow">→</div>
-          <div class="isolde-step">
-            <div class="step-icon">🧲</div>
-            <div class="step-title">Isotope Separation</div>
-            <div class="step-desc">Magnets sort isotopes by mass for study</div>
-          </div>
+          <div class="isolde-step"><div class="si">🧲</div><div class="st">Isotope Separation</div><div class="sd">Magnets sort isotopes by mass</div></div>
         </div>
-        <p>By isolating individual isotopes, scientists can measure their mass, shape, decay pattern, and internal structure — revealing how the strong nuclear force binds protons and neutrons together in extreme conditions.</p>
+        <p>By isolating individual isotopes, scientists measure their mass, shape, decay, and internal structure — revealing how the strong nuclear force binds matter in extreme conditions.</p>
 
         <h3>Why does this matter?</h3>
         <ul>
           <li><strong>Nuclear astrophysics:</strong> Understanding how elements are forged inside stars and supernovae.</li>
-          <li><strong>Medical isotopes:</strong> Many isotopes studied at ISOLDE have become tools for cancer diagnosis and treatment.</li>
-          <li><strong>Fundamental physics:</strong> Testing the limits of our theories about how matter behaves at the smallest scales.</li>
-          <li><strong>Materials science:</strong> Implanting isotopes into materials to study their properties at the atomic level.</li>
+          <li><strong>Medical isotopes:</strong> Many ISOLDE isotopes became tools for cancer diagnosis and treatment.</li>
+          <li><strong>Fundamental physics:</strong> Testing the limits of our theories of matter at the smallest scales.</li>
+          <li><strong>Materials science:</strong> Implanting isotopes into materials to study atomic-level properties.</li>
         </ul>
-        <p class="learn-cta">↓ Now fire the beam below and discover what ISOLDE has taught us! ↓</p>
       </div>
     </div>
+    <button class="btn-start" id="btnStart">Start the Simulator →</button>
   </div>
 
-  <div class="beamline" id="beamline">
-    <div class="accelerator">
-      <div class="acc-ring pulse" id="accRing1"></div>
-      <div class="acc-body"></div>
-      <div class="acc-ring pulse" id="accRing2"></div>
-      <span class="acc-label">Proton<br>Source</span>
+  <!-- ==================== PAGE 2: SIMULATOR ==================== -->
+  <div class="page" id="pageSim">
+    <button class="btn-back" id="btnBack">← Back to Learn</button>
+    <div class="header">
+      <h1>ISOLDE Isotope Discovery Simulator</h1>
+      <p class="subtitle">Fire the proton beam to create and study radioactive isotopes.</p>
     </div>
-    <div class="beam-track" id="beamTrack">
-      <div class="beam-pulse" id="beamPulse"></div>
-    </div>
-    <div class="target-wrap" id="targetWrap">
-      <div class="target-block">
-        <div class="target-ring"></div>
-        <div class="target-ring"></div>
-        <div class="target-inner"></div>
-      </div>
-      <div class="target-flash" id="targetFlash"></div>
-      <p class="target-label">Target<br>Foil</p>
-    </div>
-    <div class="isotope-display">
-      <div class="isotope-circle" id="isotopeCircle">
-        ?
-        <div class="isotope-orbit"><div class="isotope-orbiter"></div></div>
-      </div>
-      <span class="isotope-label">Isotope</span>
-    </div>
-  </div>
 
-  <div class="info-panel" id="infoPanel">
-    <div class="info-placeholder" id="infoPlaceholder">
-      Press FIRE BEAM to begin the ISOLDE timeline
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span id="progressText">Discovery 0 / 15</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
     </div>
-    <div id="infoContent" style="display:none">
-      <div class="info-top">
-        <img class="iso-image" id="isoImage" src="" alt="" loading="lazy">
-        <div class="info-meta">
-          <div class="iso-name" id="isoName"></div>
-          <div class="info-row">
-            <span class="label">Element:</span>
-            <span class="value" id="isoElement"></span>
+
+    <div class="beamline" id="beamline">
+      <div class="accelerator">
+        <div class="acc-ring pulse"></div><div class="acc-body"></div><div class="acc-ring pulse"></div>
+        <span class="acc-label">Proton<br>Source</span>
+      </div>
+      <div class="beam-track" id="beamTrack"><div class="beam-pulse" id="beamPulse"></div></div>
+      <div class="target-wrap" id="targetWrap">
+        <div class="target-block"><div class="target-ring"></div><div class="target-ring"></div><div class="target-inner"></div></div>
+        <div class="target-flash" id="targetFlash"></div>
+        <p class="target-label">Target<br>Foil</p>
+      </div>
+      <div class="isotope-display">
+        <div class="isotope-circle" id="isotopeCircle">?<div class="isotope-orbit"><div class="isotope-orbiter"></div></div></div>
+        <span class="isotope-label">Isotope</span>
+      </div>
+    </div>
+
+    <div class="info-panel" id="infoPanel">
+      <div class="info-placeholder" id="infoPlaceholder">Press FIRE BEAM to begin the ISOLDE timeline</div>
+      <div id="infoContent" style="display:none">
+        <div class="info-top">
+          <div class="elem-badge" id="elemBadge">
+            <span class="elem-symbol" id="elemSymbol"></span>
+            <span class="elem-name" id="elemName"></span>
+            <span class="elem-num" id="elemNum"></span>
           </div>
-          <div class="info-row">
-            <span class="label">Year:</span>
-            <span class="value" id="isoYear"></span>
+          <div class="info-meta">
+            <div class="iso-name" id="isoName"></div>
+            <div class="info-row"><span class="label">Element:</span><span class="value" id="isoElement"></span></div>
+            <div class="info-row"><span class="label">Year:</span><span class="value" id="isoYear"></span></div>
           </div>
         </div>
-      </div>
-      <div class="info-desc" id="isoDesc"></div>
-      <div class="info-impact" id="isoImpact" style="display:none">
-        <div class="info-impact-row">
-          <span class="impact-label">🔬 Scientific Impact</span>
-          <span class="impact-text" id="isoScience"></span>
-        </div>
-        <div class="info-impact-row">
-          <span class="impact-label">🏥 Real-World Applications</span>
-          <span class="impact-text" id="isoApplications"></span>
+        <div class="info-desc" id="isoDesc"></div>
+        <div class="info-impact" id="isoImpact" style="display:none">
+          <div class="info-impact-row"><span class="impact-label">🔬 Scientific Impact</span><span class="impact-text" id="isoScience"></span></div>
+          <div class="info-impact-row"><span class="impact-label">🏥 Real-World Applications</span><span class="impact-text" id="isoApplications"></span></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="controls">
-    <button class="btn-fire" id="btnFire" disabled>FIRE BEAM</button>
-    <div class="completion-msg" id="completionMsg" style="display:none">ISOLDE timeline completed.</div>
-    <button class="btn-restart" id="btnRestart" style="display:none">Restart Timeline</button>
-    <div class="auto-controls">
-      <label>
-        <input type="checkbox" id="autoPlay">
-        <span>Auto Play</span>
-      </label>
-      <div class="speed-wrap">
-        <span>Speed:</span>
-        <input type="range" id="speedSlider" min="1" max="5" value="3" step="0.5">
-        <span id="speedLabel">3s</span>
+    <div class="controls">
+      <button class="btn-fire" id="btnFire" disabled>FIRE BEAM</button>
+      <div class="completion-msg" id="completionMsg" style="display:none">ISOLDE timeline completed.</div>
+      <button class="btn-restart" id="btnRestart" style="display:none">Restart Timeline</button>
+      <div class="auto-controls">
+        <label><input type="checkbox" id="autoPlay"><span>Auto Play</span></label>
+        <div class="speed-wrap"><span>Speed:</span><input type="range" id="speedSlider" min="1" max="5" value="3" step="0.5"><span id="speedLabel">3s</span></div>
       </div>
     </div>
   </div>
 </div>
 
 <footer class="footer">
-  Inspired by <a href="https://home.cern/science/experiments/isolde" target="_blank" rel="noopener">CERN's ISOLDE facility</a> — an educational simulation. Not affiliated with CERN.
+  Inspired by <a href="https://home.cern/science/experiments/isolde" target="_blank" rel="noopener">CERN''s ISOLDE facility</a> — an educational simulation. Not affiliated with CERN.
 </footer>
 
 <script>
+// Element data for badges (atomic number, symbol)
+const elemData = {
+  Sodium:{num:11,sym:'Na'},Neon:{num:10,sym:'Ne'},Magnesium:{num:12,sym:'Mg'},
+  Argon:{num:18,sym:'Ar'},Krypton:{num:36,sym:'Kr'},Strontium:{num:38,sym:'Sr'},
+  Rubidium:{num:37,sym:'Rb'},Tin:{num:50,sym:'Sn'},Nickel:{num:28,sym:'Ni'},
+  Zinc:{num:30,sym:'Zn'},Cadmium:{num:48,sym:'Cd'},Calcium:{num:20,sym:'Ca'},
+  Copper:{num:29,sym:'Cu'},Potassium:{num:19,sym:'K'},Radium:{num:88,sym:'Ra'}
+};
+
 const discoveries = [
-  { isotope:"Na-20", element:"Sodium", year:1967, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Na_%28Sodium%29.jpg/320px-Na_%28Sodium%29.jpg", discovery:"One of the earliest radioactive isotopes investigated at ISOLDE. Its study helped establish the facility's capability for producing and analyzing short-lived nuclei far from stability.", science:"Na-20 helped validate the ISOLDE method itself — proving that short-lived nuclei could be produced, separated, and measured. This paved the way for decades of discoveries at the facility.", applications:"Understanding sodium isotopes contributes to astrophysical models of how elements form in exploding stars. Radioactive sodium is also used as a tracer in medical and biological research." },
-  { isotope:"Ne-17", element:"Neon", year:1968, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Neon.JPG/320px-Neon.JPG", discovery:"Improved understanding of proton-rich nuclei. Measurements of its decay properties provided early tests of nuclear models for light exotic nuclei.", science:"Ne-17 is a proton-rich isotope near the 'proton drip line' — the limit of nuclear existence. Mapping this boundary helps physicists understand which combinations of protons and neutrons can even form a nucleus.", applications:"Proton-rich neon isotopes appear in stellar fusion cycles. Studying them helps astrophysicists model energy production and element creation inside stars." },
-  { isotope:"Mg-21", element:"Magnesium", year:1970, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Magnesium_crystals.jpg/320px-Magnesium_crystals.jpg", discovery:"A proton-rich isotope whose beta-decay studies at ISOLDE contributed to mapping the proton drip line in the sd-shell region.", science:"Mg-21 is key to testing the 'sd-shell' nuclear model — a major region of the nuclear chart. Its precise mass and decay measurements constrain theories about how nuclei behave far from stability.", applications:"Magnesium is essential to life and industry. Understanding its nuclear properties aids in everything from designing better alloys to developing medical imaging agents." },
-  { isotope:"Ar-31", element:"Argon", year:1975, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Argon_discharge_tube.jpg/320px-Argon_discharge_tube.jpg", discovery:"One of the first argon isotopes studied at ISOLDE. Its half-life and decay scheme helped refine models of proton-rich nuclei in the fp-shell.", science:"Ar-31 belongs to the 'fp-shell' — a neutron-deficient region that tests our understanding of nuclear binding. Precise data on isotopes like Ar-31 calibrate the models used across nuclear physics.", applications:"Argon isotopes are used in radiation detectors, geological dating, and as tracers for studying atmospheric and ocean circulation patterns." },
-  { isotope:"Kr-72", element:"Krypton", year:1980, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Krypton_discharge_tube.jpg/320px-Krypton_discharge_tube.jpg", discovery:"Important for nuclear structure research. Studies of Kr-72 at ISOLDE revealed shape coexistence phenomena — where a nucleus exhibits different shapes at similar energies.", science:"Kr-72 revealed 'shape coexistence' — the surprising discovery that a single nucleus can switch between spherical, prolate, and oblate shapes. This fundamentally changed how physicists think about nuclear structure.", applications:"Radioactive krypton isotopes are used in medical lung imaging. Krypton dating also helps track groundwater age and movement — crucial for water resource management." },
-  { isotope:"Sr-75", element:"Strontium", year:1984, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Strontium_destilled_crystals.jpg/320px-Strontium_destilled_crystals.jpg", discovery:"A neutron-deficient isotope whose properties helped map the N=Z line above krypton. ISOLDE measurements constrained mass models in this region.", science:"Sr-75 sits near the N=Z line — where protons and neutrons are equal. These nuclei reveal symmetries in the strong force that are hidden in heavier, neutron-rich nuclei.", applications:"Strontium isotopes are used in medical radiotherapy for bone cancer, in fireworks for red colour, and in dating ancient geological samples." },
-  { isotope:"Rb-74", element:"Rubidium", year:1988, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rubidium_%2886%29.jpg/320px-Rubidium_%2886%29.jpg", discovery:"Studies of this isotope provided insight into the transition region between spherical and deformed nuclear shapes near the proton drip line.", science:"Rb-74 probes the transitional region where nuclei shift from spherical to deformed. Understanding this shape evolution is critical for testing global nuclear models.", applications:"Rubidium is used in atomic clocks (GPS satellites), in PET scanners for cardiac imaging, and in quantum computing research with ultracold atoms." },
-  { isotope:"Sn-100", element:"Tin", year:1994, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tin-2.jpg/320px-Tin-2.jpg", discovery:"One of the most important doubly-magic nuclei. Its study tested modern nuclear shell models and helped scientists understand how atomic nuclei are structured. The discovery confirmed the shell closure at N=Z=50.", science:"Sn-100 is the heaviest self-conjugate doubly-magic nucleus (N=Z=50). It's a cornerstone for testing the nuclear shell model — the equivalent of the periodic table for nuclei. Its discovery confirmed that shell closures persist far from stability.", applications:"Tin is vital in electronics soldering, and tin-based compounds are being researched for next-generation battery technology. Nuclear physics insights from Sn-100 inform materials science at the quantum level." },
-  { isotope:"Ni-78", element:"Nickel", year:1995, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nickel_electrolytic_and_1cm3_cube.jpg/320px-Nickel_electrolytic_and_1cm3_cube.jpg", discovery:"Provided insight into neutron-rich magic nuclei. As a doubly-magic nucleus with N=50 and Z=28, its properties were crucial for understanding shell evolution far from stability.", science:"Ni-78 is doubly-magic and very neutron-rich, making it a critical benchmark for theories of nuclear structure far from stability. Its properties influence models of how heavy elements form in supernova explosions.", applications:"Nickel is essential in stainless steel, batteries, and catalysts. Understanding nickel's nuclear properties aids in designing radiation-resistant materials for nuclear reactors." },
-  { isotope:"Zn-56", element:"Zinc", year:2002, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Zinc_fragment_sublimed_and_1cm3_cube.jpg/320px-Zinc_fragment_sublimed_and_1cm3_cube.jpg", discovery:"A rare case where N=Z=28 — another doubly-magic configuration. ISOLDE's study of Zn-56 and its neighbours refined understanding of the N=Z line.", science:"Zn-56 is one of the few nuclei where N=Z and both numbers are magic (28). It provides a unique laboratory for studying proton-neutron pairing and fundamental symmetries of the nuclear force.", applications:"Zinc is critical for human health (immune function), corrosion-resistant coatings (galvanisation), and as a component in batteries and solar cells." },
-  { isotope:"Cd-98", element:"Cadmium", year:2008, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cadmium-crystal_bar.jpg/320px-Cadmium-crystal_bar.jpg", discovery:"Studies at ISOLDE using laser spectroscopy probed the nuclear charge radius, revealing unexpected behaviour near the N=50 shell closure.", science:"Laser spectroscopy of Cd-98 at ISOLDE revealed an unexpected kink in charge radii near N=50. This challenged existing nuclear models and showed that shell closures can have subtle, surprising effects on nuclear shape.", applications:"Cadmium is used in rechargeable batteries, solar panels, and nuclear reactor control rods. Understanding its nuclear properties directly informs reactor safety design." },
-  { isotope:"Ca-52", element:"Calcium", year:2013, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg/320px-Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg", discovery:"Evidence for a new magic neutron number at N=32. ISOLDE's precision mass measurements of Ca-52 demonstrated the existence of this subshell closure, reshaping the nuclear chart.", science:"Ca-52 provided the first clear evidence for a new magic number at N=32 — showing that shell structure changes far from stability. This was a major discovery that forced textbooks to be rewritten and nuclear models to be rethought.", applications:"Calcium is essential for bones, teeth, and biological signalling. Calcium isotopes are used as geological tracers, in medical diagnostics, and to study climate history through ice cores." },
-  { isotope:"Cu-78", element:"Copper", year:2015, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/320px-NatCopper.jpg", discovery:"Improved understanding of heavy neutron-rich isotopes. Its study at ISOLDE probed the region near doubly-magic Ni-78 and tested shell-model predictions for nuclei with one proton outside a closed shell.", science:"Cu-78, with one proton outside doubly-magic Ni-78, is the simplest system for testing how individual nucleons behave outside a closed shell in a very neutron-rich environment.", applications:"Copper is the backbone of electrical wiring, electronics, and renewable energy infrastructure. Radioactive copper isotopes are used in PET imaging for cancer diagnosis." },
-  { isotope:"K-51", element:"Potassium", year:2017, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Kalium.jpg/320px-Kalium.jpg", discovery:"A very neutron-rich potassium isotope studied at ISOLDE using collinear resonance ionization spectroscopy. Its charge radius measurement provided insight into shell evolution near N=32.", science:"K-51 helped confirm that the N=32 shell closure persists in potassium — a lighter element than calcium — suggesting magic numbers evolve systematically across the nuclear chart.", applications:"Potassium is vital for nerve function and heartbeat regulation. The radioactive isotope K-40 is used to date rocks and fossils up to billions of years old." },
-  { isotope:"Ra-224", element:"Radium", year:2020, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Radium226.jpg/320px-Radium226.jpg", discovery:"ISOLDE's study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a 'pear-shaped' nuclear shape with implications for atomic electric dipole moment searches.", science:"Ra-224 has a pear-shaped (octupole-deformed) nucleus. This asymmetry amplifies certain quantum effects, making radium atoms ideal laboratories for searching for a permanent electric dipole moment — a signal of new physics beyond the Standard Model.", applications:"Radium isotopes are used in targeted alpha therapy — a cutting-edge cancer treatment that delivers lethal radiation directly to tumour cells while sparing healthy tissue." }
+  { isotope:"Na-20", element:"Sodium", year:1967, discovery:"One of the earliest radioactive isotopes investigated at ISOLDE. Its study helped establish the facility''s capability for producing and analyzing short-lived nuclei far from stability.", science:"Na-20 helped validate the ISOLDE method itself — proving that short-lived nuclei could be produced, separated, and measured. This paved the way for decades of discoveries at the facility.", applications:"Understanding sodium isotopes contributes to astrophysical models of how elements form in exploding stars. Radioactive sodium is also used as a tracer in medical and biological research." },
+  { isotope:"Ne-17", element:"Neon", year:1968, discovery:"Improved understanding of proton-rich nuclei. Measurements of its decay properties provided early tests of nuclear models for light exotic nuclei.", science:"Ne-17 is a proton-rich isotope near the ''proton drip line'' — the limit of nuclear existence. Mapping this boundary helps physicists understand which combinations of protons and neutrons can even form a nucleus.", applications:"Proton-rich neon isotopes appear in stellar fusion cycles. Studying them helps astrophysicists model energy production and element creation inside stars." },
+  { isotope:"Mg-21", element:"Magnesium", year:1970, discovery:"A proton-rich isotope whose beta-decay studies at ISOLDE contributed to mapping the proton drip line in the sd-shell region.", science:"Mg-21 is key to testing the ''sd-shell'' nuclear model — a major region of the nuclear chart. Its precise mass and decay measurements constrain theories about how nuclei behave far from stability.", applications:"Magnesium is essential to life and industry. Understanding its nuclear properties aids in everything from designing better alloys to developing medical imaging agents." },
+  { isotope:"Ar-31", element:"Argon", year:1975, discovery:"One of the first argon isotopes studied at ISOLDE. Its half-life and decay scheme helped refine models of proton-rich nuclei in the fp-shell.", science:"Ar-31 belongs to the ''fp-shell'' — a neutron-deficient region that tests our understanding of nuclear binding. Precise data on isotopes like Ar-31 calibrate the models used across nuclear physics.", applications:"Argon isotopes are used in radiation detectors, geological dating, and as tracers for studying atmospheric and ocean circulation patterns." },
+  { isotope:"Kr-72", element:"Krypton", year:1980, discovery:"Important for nuclear structure research. Studies of Kr-72 at ISOLDE revealed shape coexistence phenomena — where a nucleus exhibits different shapes at similar energies.", science:"Kr-72 revealed ''shape coexistence'' — the surprising discovery that a single nucleus can switch between spherical, prolate, and oblate shapes. This fundamentally changed how physicists think about nuclear structure.", applications:"Radioactive krypton isotopes are used in medical lung imaging. Krypton dating also helps track groundwater age and movement — crucial for water resource management." },
+  { isotope:"Sr-75", element:"Strontium", year:1984, discovery:"A neutron-deficient isotope whose properties helped map the N=Z line above krypton. ISOLDE measurements constrained mass models in this region.", science:"Sr-75 sits near the N=Z line — where protons and neutrons are equal. These nuclei reveal symmetries in the strong force that are hidden in heavier, neutron-rich nuclei.", applications:"Strontium isotopes are used in medical radiotherapy for bone cancer, in fireworks for red colour, and in dating ancient geological samples." },
+  { isotope:"Rb-74", element:"Rubidium", year:1988, discovery:"Studies of this isotope provided insight into the transition region between spherical and deformed nuclear shapes near the proton drip line.", science:"Rb-74 probes the transitional region where nuclei shift from spherical to deformed. Understanding this shape evolution is critical for testing global nuclear models.", applications:"Rubidium is used in atomic clocks (GPS satellites), in PET scanners for cardiac imaging, and in quantum computing research with ultracold atoms." },
+  { isotope:"Sn-100", element:"Tin", year:1994, discovery:"One of the most important doubly-magic nuclei. Its study tested modern nuclear shell models and helped scientists understand how atomic nuclei are structured. The discovery confirmed the shell closure at N=Z=50.", science:"Sn-100 is the heaviest self-conjugate doubly-magic nucleus (N=Z=50). It''s a cornerstone for testing the nuclear shell model — the equivalent of the periodic table for nuclei.", applications:"Tin is vital in electronics soldering, and tin-based compounds are being researched for next-generation battery technology. Nuclear physics insights from Sn-100 inform materials science at the quantum level." },
+  { isotope:"Ni-78", element:"Nickel", year:1995, discovery:"Provided insight into neutron-rich magic nuclei. As a doubly-magic nucleus with N=50 and Z=28, its properties were crucial for understanding shell evolution far from stability.", science:"Ni-78 is doubly-magic and very neutron-rich, making it a critical benchmark for theories of nuclear structure far from stability. Its properties influence models of how heavy elements form in supernova explosions.", applications:"Nickel is essential in stainless steel, batteries, and catalysts. Understanding nickel''s nuclear properties aids in designing radiation-resistant materials for nuclear reactors." },
+  { isotope:"Zn-56", element:"Zinc", year:2002, discovery:"A rare case where N=Z=28 — another doubly-magic configuration. ISOLDE''s study of Zn-56 and its neighbours refined understanding of the N=Z line.", science:"Zn-56 is one of the few nuclei where N=Z and both numbers are magic (28). It provides a unique laboratory for studying proton-neutron pairing and fundamental symmetries of the nuclear force.", applications:"Zinc is critical for human health (immune function), corrosion-resistant coatings (galvanisation), and as a component in batteries and solar cells." },
+  { isotope:"Cd-98", element:"Cadmium", year:2008, discovery:"Studies at ISOLDE using laser spectroscopy probed the nuclear charge radius, revealing unexpected behaviour near the N=50 shell closure.", science:"Laser spectroscopy of Cd-98 at ISOLDE revealed an unexpected kink in charge radii near N=50. This challenged existing nuclear models and showed that shell closures can have subtle, surprising effects.", applications:"Cadmium is used in rechargeable batteries, solar panels, and nuclear reactor control rods. Understanding its nuclear properties directly informs reactor safety design." },
+  { isotope:"Ca-52", element:"Calcium", year:2013, discovery:"Evidence for a new magic neutron number at N=32. ISOLDE''s precision mass measurements of Ca-52 demonstrated the existence of this subshell closure, reshaping the nuclear chart.", science:"Ca-52 provided the first clear evidence for a new magic number at N=32 — showing that shell structure changes far from stability. This forced textbooks to be rewritten.", applications:"Calcium is essential for bones, teeth, and biological signalling. Calcium isotopes are used as geological tracers, in medical diagnostics, and to study climate history through ice cores." },
+  { isotope:"Cu-78", element:"Copper", year:2015, discovery:"Improved understanding of heavy neutron-rich isotopes. Its study at ISOLDE probed the region near doubly-magic Ni-78 and tested shell-model predictions for nuclei with one proton outside a closed shell.", science:"Cu-78, with one proton outside doubly-magic Ni-78, is the simplest system for testing how individual nucleons behave outside a closed shell in a very neutron-rich environment.", applications:"Copper is the backbone of electrical wiring, electronics, and renewable energy infrastructure. Radioactive copper isotopes are used in PET imaging for cancer diagnosis." },
+  { isotope:"K-51", element:"Potassium", year:2017, discovery:"A very neutron-rich potassium isotope studied at ISOLDE using collinear resonance ionization spectroscopy. Its charge radius measurement provided insight into shell evolution near N=32.", science:"K-51 helped confirm that the N=32 shell closure persists in potassium — a lighter element than calcium — suggesting magic numbers evolve systematically across the nuclear chart.", applications:"Potassium is vital for nerve function and heartbeat regulation. The radioactive isotope K-40 is used to date rocks and fossils up to billions of years old." },
+  { isotope:"Ra-224", element:"Radium", year:2020, discovery:"ISOLDE''s study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a ''pear-shaped'' nuclear shape with implications for atomic electric dipole moment searches.", science:"Ra-224 has a pear-shaped (octupole-deformed) nucleus. This asymmetry amplifies certain quantum effects, making radium atoms ideal laboratories for searching for new physics beyond the Standard Model.", applications:"Radium isotopes are used in targeted alpha therapy — a cutting-edge cancer treatment that delivers lethal radiation directly to tumour cells while sparing healthy tissue." }
 ];
 
+// State
 let currentIndex = 0, isAnimating = false, autoPlayTimer = null, dismissTimer = null;
 let autoPlay = false, autoPlaySpeed = 3;
 
 const $ = id => document.getElementById(id);
-const btnFire = $('btnFire'), btnRestart = $('btnRestart'), completionMsg = $('completionMsg');
-const beamPulse = $('beamPulse'), targetFlash = $('targetFlash'), targetWrap = $('targetWrap');
-const isotopeCircle = $('isotopeCircle'), infoPanel = $('infoPanel');
-const infoPlaceholder = $('infoPlaceholder'), infoContent = $('infoContent');
-const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc'), isoImage = $('isoImage'), isoImpact = $('isoImpact'), isoScience = $('isoScience'), isoApplications = $('isoApplications');
-const learnToggle = $('learnToggle'), learnSection = $('learnSection');
-const progressText = $('progressText'), progressPct = $('progressPct'), progressFill = $('progressFill');
-const autoPlayCheckbox = $('autoPlay'), speedSlider = $('speedSlider'), speedLabel = $('speedLabel');
-const themeToggle = $('themeToggle');
 
 // Theme
+const themeToggle = $('themeToggle');
 function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   themeToggle.textContent = t === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
@@ -837,146 +487,117 @@ themeToggle.addEventListener('click', () => {
   setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
 });
 
+// Page navigation
+const pageLearn = $('pageLearn'), pageSim = $('pageSim');
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  $(id).classList.add('active');
+}
+$('btnStart').addEventListener('click', () => {
+  showPage('pageSim');
+  $('btnFire').disabled = false;
+  window.scrollTo(0, 0);
+});
+$('btnBack').addEventListener('click', () => {
+  stopAutoPlay(); clearTimeout(dismissTimer);
+  showPage('pageLearn');
+  window.scrollTo(0, 0);
+});
+
+// Simulator DOM
+const btnFire = $('btnFire'), btnRestart = $('btnRestart'), completionMsg = $('completionMsg');
+const beamPulse = $('beamPulse'), targetFlash = $('targetFlash'), targetWrap = $('targetWrap');
+const isotopeCircle = $('isotopeCircle'), infoPanel = $('infoPanel');
+const infoPlaceholder = $('infoPlaceholder'), infoContent = $('infoContent');
+const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc');
+const elemSymbol = $('elemSymbol'), elemName = $('elemName'), elemNum = $('elemNum');
+const isoImpact = $('isoImpact'), isoScience = $('isoScience'), isoApplications = $('isoApplications');
+const progressText = $('progressText'), progressPct = $('progressPct'), progressFill = $('progressFill');
+const autoPlayCheckbox = $('autoPlay'), speedSlider = $('speedSlider'), speedLabel = $('speedLabel');
+
 function updateProgress() {
   const t = discoveries.length, n = Math.min(currentIndex, t);
-  const pct = t ? Math.round((n / t) * 100) : 0;
+  const pct = t ? Math.round((n/t)*100) : 0;
   progressText.textContent = `Discovery ${n} / ${t}`;
   progressPct.textContent = `${pct}%`;
   progressFill.style.width = `${pct}%`;
 }
+updateProgress();
 
 function spawnParticles() {
   const r = targetWrap.getBoundingClientRect();
-  const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+  const cx = r.left + r.width/2, cy = r.top + r.height/2;
   const colors = ['#4da6ff','#80c0ff','#ffffff','#0050A8','#a0d0ff','#3377cc'];
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div'); p.className = 'particle';
-    const a = (Math.PI*2*i)/20 + (Math.random()-0.5)*0.6;
-    const d = 45 + Math.random()*70;
-    const dx = Math.cos(a)*d, dy = Math.sin(a)*d;
-    const s = 2 + Math.random()*5;
-    const c = colors[Math.floor(Math.random()*colors.length)];
-    p.style.cssText = `left:${cx}px;top:${cy}px;width:${s}px;height:${s}px;background:${c};box-shadow:0 0 ${s*3}px ${c};transition:all 0.8s cubic-bezier(0.25,0.1,0.25,1);opacity:1;`;
+  for (let i=0;i<20;i++) {
+    const p=document.createElement('div');p.className='particle';
+    const a=(Math.PI*2*i)/20+(Math.random()-0.5)*0.6, d=45+Math.random()*70;
+    const s=2+Math.random()*5, c=colors[Math.floor(Math.random()*colors.length)];
+    p.style.cssText=`left:${cx}px;top:${cy}px;width:${s}px;height:${s}px;background:${c};box-shadow:0 0 ${s*3}px ${c};transition:all 0.8s cubic-bezier(0.25,0.1,0.25,1);opacity:1;`;
     document.body.appendChild(p);
-    requestAnimationFrame(() => { p.style.transform = `translate(${dx}px,${dy}px)`; p.style.opacity = '0'; });
-    setTimeout(() => p.remove(), 850);
+    requestAnimationFrame(()=>{p.style.transform=`translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px)`;p.style.opacity='0';});
+    setTimeout(()=>p.remove(),850);
   }
 }
 
 function showInfoCard(d) {
-  isoName.textContent = d.isotope; isoElement.textContent = d.element;
-  isoYear.textContent = d.year; isoDesc.textContent = d.discovery;
-  isoImage.src = d.image || ''; isoImage.alt = d.element;
-  if (d.science && d.applications) {
-    isoScience.textContent = d.science;
-    isoApplications.textContent = d.applications;
-    isoImpact.style.display = 'flex';
-  } else {
-    isoImpact.style.display = 'none';
-  }
-  infoPlaceholder.style.display = 'none'; infoContent.style.display = 'block';
+  isoName.textContent=d.isotope;isoElement.textContent=d.element;
+  isoYear.textContent=d.year;isoDesc.textContent=d.discovery;
+  const ed=elemData[d.element];
+  elemSymbol.textContent=ed?ed.sym:'?';elemName.textContent=d.element;
+  elemNum.textContent=ed?`${ed.num}`:'';
+  if(d.science&&d.applications){isoScience.textContent=d.science;isoApplications.textContent=d.applications;isoImpact.style.display='flex';}
+  else{isoImpact.style.display='none';}
+  infoPlaceholder.style.display='none';infoContent.style.display='block';
   infoPanel.classList.add('visible');
 }
 
 function hideInfoCard() {
   infoPanel.classList.remove('visible');
-  infoPlaceholder.style.display = 'flex'; infoContent.style.display = 'none';
+  infoPlaceholder.style.display='flex';infoContent.style.display='none';
 }
 
 function fireBeam() {
-  if (isAnimating || currentIndex >= discoveries.length) return;
-  isAnimating = true; btnFire.disabled = true;
-  clearTimeout(dismissTimer);
-
-  const d = discoveries[currentIndex];
-  beamPulse.classList.remove('firing'); void beamPulse.offsetWidth;
-  beamPulse.classList.add('firing');
-
-  setTimeout(() => {
-    targetFlash.classList.remove('active'); void targetFlash.offsetWidth;
-    targetFlash.classList.add('active'); spawnParticles();
-  }, 580);
-
-  setTimeout(() => {
-    isotopeCircle.textContent = d.isotope;
-    isotopeCircle.classList.add('revealed');
-  }, 900);
-
-  setTimeout(() => showInfoCard(d), 1200);
-
-  setTimeout(() => {
-    beamPulse.classList.remove('firing');
-    targetFlash.classList.remove('active');
-    isotopeCircle.classList.remove('revealed');
-    currentIndex++; updateProgress();
-    isAnimating = false;
-
-    if (currentIndex >= discoveries.length) { complete(); }
-    else {
-      btnFire.disabled = false;
-      if (autoPlay) {
-        dismissTimer = setTimeout(() => {
-          hideInfoCard();
-          dismissTimer = setTimeout(() => {
-            if (autoPlay && !isAnimating && currentIndex < discoveries.length) fireBeam();
-          }, 400);
-        }, 10000);
-      }
-    }
-  }, 3200);
+  if(isAnimating||currentIndex>=discoveries.length)return;
+  isAnimating=true;btnFire.disabled=true;clearTimeout(dismissTimer);
+  const d=discoveries[currentIndex];
+  beamPulse.classList.remove('firing');void beamPulse.offsetWidth;beamPulse.classList.add('firing');
+  setTimeout(()=>{targetFlash.classList.remove('active');void targetFlash.offsetWidth;targetFlash.classList.add('active');spawnParticles();},580);
+  setTimeout(()=>{isotopeCircle.textContent=d.isotope;isotopeCircle.classList.add('revealed');},900);
+  setTimeout(()=>showInfoCard(d),1200);
+  setTimeout(()=>{
+    beamPulse.classList.remove('firing');targetFlash.classList.remove('active');
+    isotopeCircle.classList.remove('revealed');currentIndex++;updateProgress();isAnimating=false;
+    if(currentIndex>=discoveries.length){complete();}
+    else{btnFire.disabled=false;if(autoPlay){dismissTimer=setTimeout(()=>{hideInfoCard();dismissTimer=setTimeout(()=>{if(autoPlay&&!isAnimating&&currentIndex<discoveries.length)fireBeam();},400);},10000);}}
+  },3200);
 }
 
-function complete() {
-  btnFire.style.display = 'none'; completionMsg.style.display = 'block';
-  btnRestart.style.display = 'inline-block'; stopAutoPlay();
-  isotopeCircle.textContent = '\u2713'; isotopeCircle.classList.add('revealed');
-  infoPanel.classList.add('visible');
+function complete(){
+  btnFire.style.display='none';completionMsg.style.display='block';btnRestart.style.display='inline-block';
+  stopAutoPlay();isotopeCircle.textContent='\u2713';isotopeCircle.classList.add('revealed');infoPanel.classList.add('visible');
 }
 
-function restart() {
-  stopAutoPlay(); clearTimeout(dismissTimer);
-  currentIndex = 0; isAnimating = false;
-  isotopeCircle.textContent = '?'; isotopeCircle.classList.remove('revealed');
-  hideInfoCard(); infoPlaceholder.style.display = 'flex'; infoContent.style.display = 'none';
-  beamPulse.classList.remove('firing'); targetFlash.classList.remove('active');
-  btnFire.style.display = ''; btnFire.disabled = false;
-  completionMsg.style.display = 'none'; btnRestart.style.display = 'none';
-  updateProgress();
-  if (autoPlay) scheduleAutoPlay();
+function restart(){
+  stopAutoPlay();clearTimeout(dismissTimer);currentIndex=0;isAnimating=false;
+  isotopeCircle.textContent='?';isotopeCircle.classList.remove('revealed');hideInfoCard();
+  infoPlaceholder.style.display='flex';infoContent.style.display='none';
+  beamPulse.classList.remove('firing');targetFlash.classList.remove('active');
+  btnFire.style.display='';btnFire.disabled=true;completionMsg.style.display='none';btnRestart.style.display='none';
+  updateProgress();btnFire.disabled=false;if(autoPlay)scheduleAutoPlay();
 }
 
-function scheduleAutoPlay() {
-  stopAutoPlay(); clearTimeout(dismissTimer);
-  if (!autoPlay || currentIndex >= discoveries.length || isAnimating) return;
-  autoPlayTimer = setTimeout(() => {
-    if (autoPlay && !isAnimating && currentIndex < discoveries.length) fireBeam();
-  }, autoPlaySpeed * 1000);
+function scheduleAutoPlay(){
+  stopAutoPlay();clearTimeout(dismissTimer);
+  if(!autoPlay||currentIndex>=discoveries.length||isAnimating)return;
+  autoPlayTimer=setTimeout(()=>{if(autoPlay&&!isAnimating&&currentIndex<discoveries.length)fireBeam();},autoPlaySpeed*1000);
 }
 
-function stopAutoPlay() { if (autoPlayTimer) { clearTimeout(autoPlayTimer); autoPlayTimer = null; } }
+function stopAutoPlay(){if(autoPlayTimer){clearTimeout(autoPlayTimer);autoPlayTimer=null;}}
 
-btnFire.addEventListener('click', () => {
-  if (!isAnimating && currentIndex < discoveries.length) {
-    stopAutoPlay(); clearTimeout(dismissTimer); fireBeam();
-  }
-});
-btnRestart.addEventListener('click', restart);
-autoPlayCheckbox.addEventListener('change', () => {
-  autoPlay = autoPlayCheckbox.checked; clearTimeout(dismissTimer);
-  if (autoPlay) scheduleAutoPlay(); else stopAutoPlay();
-});
-speedSlider.addEventListener('input', () => {
-  autoPlaySpeed = parseFloat(speedSlider.value);
-  speedLabel.textContent = autoPlaySpeed + 's';
-  if (autoPlay) { stopAutoPlay(); scheduleAutoPlay(); }
-});
-
-btnFire.disabled = false;
-
-// Learn section toggle
-learnToggle.addEventListener('click', () => {
-  learnSection.classList.toggle('open');
-});
+btnFire.addEventListener('click',()=>{if(!isAnimating&&currentIndex<discoveries.length){stopAutoPlay();clearTimeout(dismissTimer);fireBeam();}});
+btnRestart.addEventListener('click',restart);
+autoPlayCheckbox.addEventListener('change',()=>{autoPlay=autoPlayCheckbox.checked;clearTimeout(dismissTimer);if(autoPlay)scheduleAutoPlay();else stopAutoPlay();});
+speedSlider.addEventListener('input',()=>{autoPlaySpeed=parseFloat(speedSlider.value);speedLabel.textContent=autoPlaySpeed+'s';if(autoPlay){stopAutoPlay();scheduleAutoPlay();}});
 </script>
 </body>
 </html>
