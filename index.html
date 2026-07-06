@@ -369,6 +369,20 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem; font-weight: 800; color: var(--accent);
 }
+.info-panel .info-top {
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.info-panel .iso-image {
+  width: 110px; height: 110px; object-fit: cover;
+  border-radius: 8px; border: 1px solid var(--border-default);
+  flex-shrink: 0;
+  background: var(--bg-surface);
+}
+.info-panel .info-meta { flex: 1; min-width: 0; }
+@media (max-width: 480px) {
+  .info-panel .info-top { flex-direction: column; align-items: center; }
+  .info-panel .iso-image { width: 100%; max-width: 200px; height: auto; aspect-ratio: 1; }
+}
 .info-panel .info-row {
   display: flex; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.88rem;
 }
@@ -515,14 +529,19 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
       Press FIRE BEAM to begin the ISOLDE timeline
     </div>
     <div id="infoContent" style="display:none">
-      <div class="iso-name" id="isoName"></div>
-      <div class="info-row">
-        <span class="label">Element:</span>
-        <span class="value" id="isoElement"></span>
-      </div>
-      <div class="info-row">
-        <span class="label">Year:</span>
-        <span class="value" id="isoYear"></span>
+      <div class="info-top">
+        <img class="iso-image" id="isoImage" src="" alt="" loading="lazy">
+        <div class="info-meta">
+          <div class="iso-name" id="isoName"></div>
+          <div class="info-row">
+            <span class="label">Element:</span>
+            <span class="value" id="isoElement"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Year:</span>
+            <span class="value" id="isoYear"></span>
+          </div>
+        </div>
       </div>
       <div class="info-desc" id="isoDesc"></div>
     </div>
@@ -552,21 +571,21 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
 
 <script>
 const discoveries = [
-  { isotope:"Na-20", element:"Sodium", year:1967, discovery:"One of the earliest radioactive isotopes investigated at ISOLDE. Its study helped establish the facility's capability for producing and analyzing short-lived nuclei far from stability." },
-  { isotope:"Ne-17", element:"Neon", year:1968, discovery:"Improved understanding of proton-rich nuclei. Measurements of its decay properties provided early tests of nuclear models for light exotic nuclei." },
-  { isotope:"Mg-21", element:"Magnesium", year:1970, discovery:"A proton-rich isotope whose beta-decay studies at ISOLDE contributed to mapping the proton drip line in the sd-shell region." },
-  { isotope:"Ar-31", element:"Argon", year:1975, discovery:"One of the first argon isotopes studied at ISOLDE. Its half-life and decay scheme helped refine models of proton-rich nuclei in the fp-shell." },
-  { isotope:"Kr-72", element:"Krypton", year:1980, discovery:"Important for nuclear structure research. Studies of Kr-72 at ISOLDE revealed shape coexistence phenomena — where a nucleus exhibits different shapes at similar energies." },
-  { isotope:"Sr-75", element:"Strontium", year:1984, discovery:"A neutron-deficient isotope whose properties helped map the N=Z line above krypton. ISOLDE measurements constrained mass models in this region." },
-  { isotope:"Rb-74", element:"Rubidium", year:1988, discovery:"Studies of this isotope provided insight into the transition region between spherical and deformed nuclear shapes near the proton drip line." },
-  { isotope:"Sn-100", element:"Tin", year:1994, discovery:"One of the most important doubly-magic nuclei. Its study tested modern nuclear shell models and helped scientists understand how atomic nuclei are structured. The discovery confirmed the shell closure at N=Z=50." },
-  { isotope:"Ni-78", element:"Nickel", year:1995, discovery:"Provided insight into neutron-rich magic nuclei. As a doubly-magic nucleus with N=50 and Z=28, its properties were crucial for understanding shell evolution far from stability." },
-  { isotope:"Zn-56", element:"Zinc", year:2002, discovery:"A rare case where N=Z=28 — another doubly-magic configuration. ISOLDE's study of Zn-56 and its neighbours refined understanding of the N=Z line." },
-  { isotope:"Cd-98", element:"Cadmium", year:2008, discovery:"Studies at ISOLDE using laser spectroscopy probed the nuclear charge radius, revealing unexpected behaviour near the N=50 shell closure." },
-  { isotope:"Ca-52", element:"Calcium", year:2013, discovery:"Evidence for a new magic neutron number at N=32. ISOLDE's precision mass measurements of Ca-52 demonstrated the existence of this subshell closure, reshaping the nuclear chart." },
-  { isotope:"Cu-78", element:"Copper", year:2015, discovery:"Improved understanding of heavy neutron-rich isotopes. Its study at ISOLDE probed the region near doubly-magic Ni-78 and tested shell-model predictions for nuclei with one proton outside a closed shell." },
-  { isotope:"K-51", element:"Potassium", year:2017, discovery:"A very neutron-rich potassium isotope studied at ISOLDE using collinear resonance ionization spectroscopy. Its charge radius measurement provided insight into shell evolution near N=32." },
-  { isotope:"Ra-224", element:"Radium", year:2020, discovery:"ISOLDE's study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a 'pear-shaped' nuclear shape with implications for atomic electric dipole moment searches." }
+  { isotope:"Na-20", element:"Sodium", year:1967, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Na_%28Sodium%29.jpg/320px-Na_%28Sodium%29.jpg", discovery:"One of the earliest radioactive isotopes investigated at ISOLDE. Its study helped establish the facility's capability for producing and analyzing short-lived nuclei far from stability." },
+  { isotope:"Ne-17", element:"Neon", year:1968, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Neon.JPG/320px-Neon.JPG", discovery:"Improved understanding of proton-rich nuclei. Measurements of its decay properties provided early tests of nuclear models for light exotic nuclei." },
+  { isotope:"Mg-21", element:"Magnesium", year:1970, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Magnesium_crystals.jpg/320px-Magnesium_crystals.jpg", discovery:"A proton-rich isotope whose beta-decay studies at ISOLDE contributed to mapping the proton drip line in the sd-shell region." },
+  { isotope:"Ar-31", element:"Argon", year:1975, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Argon_discharge_tube.jpg/320px-Argon_discharge_tube.jpg", discovery:"One of the first argon isotopes studied at ISOLDE. Its half-life and decay scheme helped refine models of proton-rich nuclei in the fp-shell." },
+  { isotope:"Kr-72", element:"Krypton", year:1980, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Krypton_discharge_tube.jpg/320px-Krypton_discharge_tube.jpg", discovery:"Important for nuclear structure research. Studies of Kr-72 at ISOLDE revealed shape coexistence phenomena — where a nucleus exhibits different shapes at similar energies." },
+  { isotope:"Sr-75", element:"Strontium", year:1984, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Strontium_destilled_crystals.jpg/320px-Strontium_destilled_crystals.jpg", discovery:"A neutron-deficient isotope whose properties helped map the N=Z line above krypton. ISOLDE measurements constrained mass models in this region." },
+  { isotope:"Rb-74", element:"Rubidium", year:1988, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rubidium_%2886%29.jpg/320px-Rubidium_%2886%29.jpg", discovery:"Studies of this isotope provided insight into the transition region between spherical and deformed nuclear shapes near the proton drip line." },
+  { isotope:"Sn-100", element:"Tin", year:1994, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tin-2.jpg/320px-Tin-2.jpg", discovery:"One of the most important doubly-magic nuclei. Its study tested modern nuclear shell models and helped scientists understand how atomic nuclei are structured. The discovery confirmed the shell closure at N=Z=50." },
+  { isotope:"Ni-78", element:"Nickel", year:1995, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nickel_electrolytic_and_1cm3_cube.jpg/320px-Nickel_electrolytic_and_1cm3_cube.jpg", discovery:"Provided insight into neutron-rich magic nuclei. As a doubly-magic nucleus with N=50 and Z=28, its properties were crucial for understanding shell evolution far from stability." },
+  { isotope:"Zn-56", element:"Zinc", year:2002, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Zinc_fragment_sublimed_and_1cm3_cube.jpg/320px-Zinc_fragment_sublimed_and_1cm3_cube.jpg", discovery:"A rare case where N=Z=28 — another doubly-magic configuration. ISOLDE's study of Zn-56 and its neighbours refined understanding of the N=Z line." },
+  { isotope:"Cd-98", element:"Cadmium", year:2008, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cadmium-crystal_bar.jpg/320px-Cadmium-crystal_bar.jpg", discovery:"Studies at ISOLDE using laser spectroscopy probed the nuclear charge radius, revealing unexpected behaviour near the N=50 shell closure." },
+  { isotope:"Ca-52", element:"Calcium", year:2013, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg/320px-Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg", discovery:"Evidence for a new magic neutron number at N=32. ISOLDE's precision mass measurements of Ca-52 demonstrated the existence of this subshell closure, reshaping the nuclear chart." },
+  { isotope:"Cu-78", element:"Copper", year:2015, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/320px-NatCopper.jpg", discovery:"Improved understanding of heavy neutron-rich isotopes. Its study at ISOLDE probed the region near doubly-magic Ni-78 and tested shell-model predictions for nuclei with one proton outside a closed shell." },
+  { isotope:"K-51", element:"Potassium", year:2017, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Kalium.jpg/320px-Kalium.jpg", discovery:"A very neutron-rich potassium isotope studied at ISOLDE using collinear resonance ionization spectroscopy. Its charge radius measurement provided insight into shell evolution near N=32." },
+  { isotope:"Ra-224", element:"Radium", year:2020, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Radium226.jpg/320px-Radium226.jpg", discovery:"ISOLDE's study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a 'pear-shaped' nuclear shape with implications for atomic electric dipole moment searches." }
 ];
 
 let currentIndex = 0, isAnimating = false, autoPlayTimer = null, dismissTimer = null;
@@ -577,7 +596,7 @@ const btnFire = $('btnFire'), btnRestart = $('btnRestart'), completionMsg = $('c
 const beamPulse = $('beamPulse'), targetFlash = $('targetFlash'), targetWrap = $('targetWrap');
 const isotopeCircle = $('isotopeCircle'), infoPanel = $('infoPanel');
 const infoPlaceholder = $('infoPlaceholder'), infoContent = $('infoContent');
-const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc');
+const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc'), isoImage = $('isoImage');
 const progressText = $('progressText'), progressPct = $('progressPct'), progressFill = $('progressFill');
 const autoPlayCheckbox = $('autoPlay'), speedSlider = $('speedSlider'), speedLabel = $('speedLabel');
 const themeToggle = $('themeToggle');
@@ -622,6 +641,7 @@ function spawnParticles() {
 function showInfoCard(d) {
   isoName.textContent = d.isotope; isoElement.textContent = d.element;
   isoYear.textContent = d.year; isoDesc.textContent = d.discovery;
+  isoImage.src = d.image || ''; isoImage.alt = d.element;
   infoPlaceholder.style.display = 'none'; infoContent.style.display = 'block';
   infoPanel.classList.add('visible');
 }
