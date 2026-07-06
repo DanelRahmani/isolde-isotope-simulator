@@ -392,10 +392,65 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
   margin-top: 0.7rem; font-size: 0.84rem;
   color: var(--text-secondary); line-height: 1.55;
 }
+.info-desc strong { color: var(--accent); }
 .info-placeholder {
   display: flex; align-items: center; justify-content: center;
   height: 100%; min-height: 110px;
   color: var(--text-muted); font-size: 0.85rem;
+}
+.info-impact {
+  margin-top: 0.8rem; padding-top: 0.8rem;
+  border-top: 1px solid var(--border-default);
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.info-impact-row { font-size: 0.82rem; line-height: 1.45; }
+.info-impact-row .impact-label {
+  color: var(--accent); font-weight: 700; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  display: block; margin-bottom: 0.15rem;
+}
+.info-impact-row .impact-text { color: var(--text-secondary); }
+
+/* Learn section */
+.learn-section {
+  width: 100%; max-width: 700px;
+  border: 1px solid var(--border-default); border-radius: 10px;
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.learn-toggle {
+  width: 100%; padding: 0.8rem 1.2rem;
+  font-family: 'Open Sans', sans-serif; font-size: 0.9rem; font-weight: 700;
+  color: var(--text-primary); background: none; border: none;
+  cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+  gap: 0.5rem; text-align: left;
+  transition: background 0.2s ease;
+}
+.learn-toggle:hover { background: var(--cern-blue-dim); }
+.learn-toggle .learn-arrow {
+  font-size: 0.7rem; transition: transform 0.3s ease; color: var(--accent);
+}
+.learn-section.open .learn-arrow { transform: rotate(180deg); }
+.learn-content {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.learn-section.open .learn-content { max-height: 1200px; }
+.learn-inner {
+  padding: 0 1.2rem 1.2rem;
+  font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;
+}
+.learn-inner h3 {
+  font-size: 0.95rem; color: var(--accent); margin: 1rem 0 0.4rem;
+}
+.learn-inner h3:first-child { margin-top: 0; }
+.learn-inner p { margin-bottom: 0.5rem; }
+.learn-inner ul { margin: 0.3rem 0 0.5rem 1.2rem; }
+.learn-inner li { margin-bottom: 0.25rem; }
+.learn-cta {
+  font-weight: 700; color: var(--accent);
+  text-align: center; margin-top: 0.8rem; font-size: 0.85rem;
 }
 
 .controls {
@@ -496,6 +551,34 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
     </div>
   </div>
 
+  <div class="learn-section" id="learnSection">
+    <button class="learn-toggle" id="learnToggle">
+      <span>📚 Learn: Nuclear Physics, ISOLDE &amp; CERN</span>
+      <span class="learn-arrow">▼</span>
+    </button>
+    <div class="learn-content">
+      <div class="learn-inner">
+        <h3>What is Nuclear Physics?</h3>
+        <p>Nuclear physics studies the tiny, dense core of every atom — the <strong>nucleus</strong>. Each nucleus contains protons (positively charged) and neutrons (neutral), held together by the <strong>strong nuclear force</strong>. An <strong>isotope</strong> is a variant of an element with the same number of protons but a different number of neutrons. While there are about 250 stable isotopes in nature, physicists have predicted <strong>thousands more</strong> that are radioactive and decay within fractions of a second. Studying these exotic nuclei helps us understand why matter exists the way it does.</p>
+
+        <h3>What is CERN?</h3>
+        <p>CERN is the European Organization for Nuclear Research, home to the <strong>Large Hadron Collider (LHC)</strong> — the world's largest particle accelerator. But CERN is much more than the LHC. It hosts a dozen experiments studying everything from antimatter to cosmic rays, and it's where the <strong>World Wide Web was invented in 1989</strong>. Scientists from over 100 countries collaborate at CERN to answer fundamental questions about the Universe.</p>
+
+        <h3>What is ISOLDE?</h3>
+        <p>ISOLDE (Isotope Separator On-Line DEvice) is a unique facility at CERN that has been operating since <strong>1967</strong>. It works by firing a <strong>high-energy proton beam</strong> from CERN's accelerator complex into a heavy metal target. The collision shatters atomic nuclei, creating a spray of exotic, radioactive isotopes — isotopes that don't exist naturally on Earth. Magnetic fields separate these isotopes by mass, allowing scientists to study them one at a time. ISOLDE has produced and studied <strong>over 1,300 different isotopes</strong>, making it one of the world's most prolific isotope factories.</p>
+
+        <h3>Why does this matter?</h3>
+        <ul>
+          <li><strong>Nuclear astrophysics:</strong> Understanding how elements are forged inside stars and supernovae.</li>
+          <li><strong>Medical isotopes:</strong> Many isotopes studied at ISOLDE have become tools for cancer diagnosis and treatment.</li>
+          <li><strong>Fundamental physics:</strong> Testing the limits of our theories about how matter behaves at the smallest scales.</li>
+          <li><strong>Materials science:</strong> Implanting isotopes into materials to study their properties at the atomic level.</li>
+        </ul>
+        <p class="learn-cta">↓ Now fire the beam below and discover what ISOLDE has taught us! ↓</p>
+      </div>
+    </div>
+  </div>
+
   <div class="beamline" id="beamline">
     <div class="accelerator">
       <div class="acc-ring pulse" id="accRing1"></div>
@@ -544,6 +627,16 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
         </div>
       </div>
       <div class="info-desc" id="isoDesc"></div>
+      <div class="info-impact" id="isoImpact" style="display:none">
+        <div class="info-impact-row">
+          <span class="impact-label">🔬 Scientific Impact</span>
+          <span class="impact-text" id="isoScience"></span>
+        </div>
+        <div class="info-impact-row">
+          <span class="impact-label">🏥 Real-World Applications</span>
+          <span class="impact-text" id="isoApplications"></span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -571,21 +664,21 @@ h1, h2, h3, h4 { font-family: 'Open Sans', system-ui, sans-serif; }
 
 <script>
 const discoveries = [
-  { isotope:"Na-20", element:"Sodium", year:1967, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Na_%28Sodium%29.jpg/320px-Na_%28Sodium%29.jpg", discovery:"One of the earliest radioactive isotopes investigated at ISOLDE. Its study helped establish the facility's capability for producing and analyzing short-lived nuclei far from stability." },
-  { isotope:"Ne-17", element:"Neon", year:1968, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Neon.JPG/320px-Neon.JPG", discovery:"Improved understanding of proton-rich nuclei. Measurements of its decay properties provided early tests of nuclear models for light exotic nuclei." },
-  { isotope:"Mg-21", element:"Magnesium", year:1970, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Magnesium_crystals.jpg/320px-Magnesium_crystals.jpg", discovery:"A proton-rich isotope whose beta-decay studies at ISOLDE contributed to mapping the proton drip line in the sd-shell region." },
-  { isotope:"Ar-31", element:"Argon", year:1975, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Argon_discharge_tube.jpg/320px-Argon_discharge_tube.jpg", discovery:"One of the first argon isotopes studied at ISOLDE. Its half-life and decay scheme helped refine models of proton-rich nuclei in the fp-shell." },
-  { isotope:"Kr-72", element:"Krypton", year:1980, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Krypton_discharge_tube.jpg/320px-Krypton_discharge_tube.jpg", discovery:"Important for nuclear structure research. Studies of Kr-72 at ISOLDE revealed shape coexistence phenomena — where a nucleus exhibits different shapes at similar energies." },
-  { isotope:"Sr-75", element:"Strontium", year:1984, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Strontium_destilled_crystals.jpg/320px-Strontium_destilled_crystals.jpg", discovery:"A neutron-deficient isotope whose properties helped map the N=Z line above krypton. ISOLDE measurements constrained mass models in this region." },
-  { isotope:"Rb-74", element:"Rubidium", year:1988, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rubidium_%2886%29.jpg/320px-Rubidium_%2886%29.jpg", discovery:"Studies of this isotope provided insight into the transition region between spherical and deformed nuclear shapes near the proton drip line." },
-  { isotope:"Sn-100", element:"Tin", year:1994, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tin-2.jpg/320px-Tin-2.jpg", discovery:"One of the most important doubly-magic nuclei. Its study tested modern nuclear shell models and helped scientists understand how atomic nuclei are structured. The discovery confirmed the shell closure at N=Z=50." },
-  { isotope:"Ni-78", element:"Nickel", year:1995, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nickel_electrolytic_and_1cm3_cube.jpg/320px-Nickel_electrolytic_and_1cm3_cube.jpg", discovery:"Provided insight into neutron-rich magic nuclei. As a doubly-magic nucleus with N=50 and Z=28, its properties were crucial for understanding shell evolution far from stability." },
-  { isotope:"Zn-56", element:"Zinc", year:2002, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Zinc_fragment_sublimed_and_1cm3_cube.jpg/320px-Zinc_fragment_sublimed_and_1cm3_cube.jpg", discovery:"A rare case where N=Z=28 — another doubly-magic configuration. ISOLDE's study of Zn-56 and its neighbours refined understanding of the N=Z line." },
-  { isotope:"Cd-98", element:"Cadmium", year:2008, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cadmium-crystal_bar.jpg/320px-Cadmium-crystal_bar.jpg", discovery:"Studies at ISOLDE using laser spectroscopy probed the nuclear charge radius, revealing unexpected behaviour near the N=50 shell closure." },
-  { isotope:"Ca-52", element:"Calcium", year:2013, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg/320px-Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg", discovery:"Evidence for a new magic neutron number at N=32. ISOLDE's precision mass measurements of Ca-52 demonstrated the existence of this subshell closure, reshaping the nuclear chart." },
-  { isotope:"Cu-78", element:"Copper", year:2015, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/320px-NatCopper.jpg", discovery:"Improved understanding of heavy neutron-rich isotopes. Its study at ISOLDE probed the region near doubly-magic Ni-78 and tested shell-model predictions for nuclei with one proton outside a closed shell." },
-  { isotope:"K-51", element:"Potassium", year:2017, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Kalium.jpg/320px-Kalium.jpg", discovery:"A very neutron-rich potassium isotope studied at ISOLDE using collinear resonance ionization spectroscopy. Its charge radius measurement provided insight into shell evolution near N=32." },
-  { isotope:"Ra-224", element:"Radium", year:2020, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Radium226.jpg/320px-Radium226.jpg", discovery:"ISOLDE's study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a 'pear-shaped' nuclear shape with implications for atomic electric dipole moment searches." }
+  { isotope:"Na-20", element:"Sodium", year:1967, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Na_%28Sodium%29.jpg/320px-Na_%28Sodium%29.jpg", discovery:"One of the earliest radioactive isotopes investigated at ISOLDE. Its study helped establish the facility's capability for producing and analyzing short-lived nuclei far from stability.", science:"Na-20 helped validate the ISOLDE method itself — proving that short-lived nuclei could be produced, separated, and measured. This paved the way for decades of discoveries at the facility.", applications:"Understanding sodium isotopes contributes to astrophysical models of how elements form in exploding stars. Radioactive sodium is also used as a tracer in medical and biological research." },
+  { isotope:"Ne-17", element:"Neon", year:1968, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Neon.JPG/320px-Neon.JPG", discovery:"Improved understanding of proton-rich nuclei. Measurements of its decay properties provided early tests of nuclear models for light exotic nuclei.", science:"Ne-17 is a proton-rich isotope near the 'proton drip line' — the limit of nuclear existence. Mapping this boundary helps physicists understand which combinations of protons and neutrons can even form a nucleus.", applications:"Proton-rich neon isotopes appear in stellar fusion cycles. Studying them helps astrophysicists model energy production and element creation inside stars." },
+  { isotope:"Mg-21", element:"Magnesium", year:1970, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Magnesium_crystals.jpg/320px-Magnesium_crystals.jpg", discovery:"A proton-rich isotope whose beta-decay studies at ISOLDE contributed to mapping the proton drip line in the sd-shell region.", science:"Mg-21 is key to testing the 'sd-shell' nuclear model — a major region of the nuclear chart. Its precise mass and decay measurements constrain theories about how nuclei behave far from stability.", applications:"Magnesium is essential to life and industry. Understanding its nuclear properties aids in everything from designing better alloys to developing medical imaging agents." },
+  { isotope:"Ar-31", element:"Argon", year:1975, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Argon_discharge_tube.jpg/320px-Argon_discharge_tube.jpg", discovery:"One of the first argon isotopes studied at ISOLDE. Its half-life and decay scheme helped refine models of proton-rich nuclei in the fp-shell.", science:"Ar-31 belongs to the 'fp-shell' — a neutron-deficient region that tests our understanding of nuclear binding. Precise data on isotopes like Ar-31 calibrate the models used across nuclear physics.", applications:"Argon isotopes are used in radiation detectors, geological dating, and as tracers for studying atmospheric and ocean circulation patterns." },
+  { isotope:"Kr-72", element:"Krypton", year:1980, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Krypton_discharge_tube.jpg/320px-Krypton_discharge_tube.jpg", discovery:"Important for nuclear structure research. Studies of Kr-72 at ISOLDE revealed shape coexistence phenomena — where a nucleus exhibits different shapes at similar energies.", science:"Kr-72 revealed 'shape coexistence' — the surprising discovery that a single nucleus can switch between spherical, prolate, and oblate shapes. This fundamentally changed how physicists think about nuclear structure.", applications:"Radioactive krypton isotopes are used in medical lung imaging. Krypton dating also helps track groundwater age and movement — crucial for water resource management." },
+  { isotope:"Sr-75", element:"Strontium", year:1984, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Strontium_destilled_crystals.jpg/320px-Strontium_destilled_crystals.jpg", discovery:"A neutron-deficient isotope whose properties helped map the N=Z line above krypton. ISOLDE measurements constrained mass models in this region.", science:"Sr-75 sits near the N=Z line — where protons and neutrons are equal. These nuclei reveal symmetries in the strong force that are hidden in heavier, neutron-rich nuclei.", applications:"Strontium isotopes are used in medical radiotherapy for bone cancer, in fireworks for red colour, and in dating ancient geological samples." },
+  { isotope:"Rb-74", element:"Rubidium", year:1988, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rubidium_%2886%29.jpg/320px-Rubidium_%2886%29.jpg", discovery:"Studies of this isotope provided insight into the transition region between spherical and deformed nuclear shapes near the proton drip line.", science:"Rb-74 probes the transitional region where nuclei shift from spherical to deformed. Understanding this shape evolution is critical for testing global nuclear models.", applications:"Rubidium is used in atomic clocks (GPS satellites), in PET scanners for cardiac imaging, and in quantum computing research with ultracold atoms." },
+  { isotope:"Sn-100", element:"Tin", year:1994, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tin-2.jpg/320px-Tin-2.jpg", discovery:"One of the most important doubly-magic nuclei. Its study tested modern nuclear shell models and helped scientists understand how atomic nuclei are structured. The discovery confirmed the shell closure at N=Z=50.", science:"Sn-100 is the heaviest self-conjugate doubly-magic nucleus (N=Z=50). It's a cornerstone for testing the nuclear shell model — the equivalent of the periodic table for nuclei. Its discovery confirmed that shell closures persist far from stability.", applications:"Tin is vital in electronics soldering, and tin-based compounds are being researched for next-generation battery technology. Nuclear physics insights from Sn-100 inform materials science at the quantum level." },
+  { isotope:"Ni-78", element:"Nickel", year:1995, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nickel_electrolytic_and_1cm3_cube.jpg/320px-Nickel_electrolytic_and_1cm3_cube.jpg", discovery:"Provided insight into neutron-rich magic nuclei. As a doubly-magic nucleus with N=50 and Z=28, its properties were crucial for understanding shell evolution far from stability.", science:"Ni-78 is doubly-magic and very neutron-rich, making it a critical benchmark for theories of nuclear structure far from stability. Its properties influence models of how heavy elements form in supernova explosions.", applications:"Nickel is essential in stainless steel, batteries, and catalysts. Understanding nickel's nuclear properties aids in designing radiation-resistant materials for nuclear reactors." },
+  { isotope:"Zn-56", element:"Zinc", year:2002, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Zinc_fragment_sublimed_and_1cm3_cube.jpg/320px-Zinc_fragment_sublimed_and_1cm3_cube.jpg", discovery:"A rare case where N=Z=28 — another doubly-magic configuration. ISOLDE's study of Zn-56 and its neighbours refined understanding of the N=Z line.", science:"Zn-56 is one of the few nuclei where N=Z and both numbers are magic (28). It provides a unique laboratory for studying proton-neutron pairing and fundamental symmetries of the nuclear force.", applications:"Zinc is critical for human health (immune function), corrosion-resistant coatings (galvanisation), and as a component in batteries and solar cells." },
+  { isotope:"Cd-98", element:"Cadmium", year:2008, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cadmium-crystal_bar.jpg/320px-Cadmium-crystal_bar.jpg", discovery:"Studies at ISOLDE using laser spectroscopy probed the nuclear charge radius, revealing unexpected behaviour near the N=50 shell closure.", science:"Laser spectroscopy of Cd-98 at ISOLDE revealed an unexpected kink in charge radii near N=50. This challenged existing nuclear models and showed that shell closures can have subtle, surprising effects on nuclear shape.", applications:"Cadmium is used in rechargeable batteries, solar panels, and nuclear reactor control rods. Understanding its nuclear properties directly informs reactor safety design." },
+  { isotope:"Ca-52", element:"Calcium", year:2013, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg/320px-Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg", discovery:"Evidence for a new magic neutron number at N=32. ISOLDE's precision mass measurements of Ca-52 demonstrated the existence of this subshell closure, reshaping the nuclear chart.", science:"Ca-52 provided the first clear evidence for a new magic number at N=32 — showing that shell structure changes far from stability. This was a major discovery that forced textbooks to be rewritten and nuclear models to be rethought.", applications:"Calcium is essential for bones, teeth, and biological signalling. Calcium isotopes are used as geological tracers, in medical diagnostics, and to study climate history through ice cores." },
+  { isotope:"Cu-78", element:"Copper", year:2015, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/320px-NatCopper.jpg", discovery:"Improved understanding of heavy neutron-rich isotopes. Its study at ISOLDE probed the region near doubly-magic Ni-78 and tested shell-model predictions for nuclei with one proton outside a closed shell.", science:"Cu-78, with one proton outside doubly-magic Ni-78, is the simplest system for testing how individual nucleons behave outside a closed shell in a very neutron-rich environment.", applications:"Copper is the backbone of electrical wiring, electronics, and renewable energy infrastructure. Radioactive copper isotopes are used in PET imaging for cancer diagnosis." },
+  { isotope:"K-51", element:"Potassium", year:2017, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Kalium.jpg/320px-Kalium.jpg", discovery:"A very neutron-rich potassium isotope studied at ISOLDE using collinear resonance ionization spectroscopy. Its charge radius measurement provided insight into shell evolution near N=32.", science:"K-51 helped confirm that the N=32 shell closure persists in potassium — a lighter element than calcium — suggesting magic numbers evolve systematically across the nuclear chart.", applications:"Potassium is vital for nerve function and heartbeat regulation. The radioactive isotope K-40 is used to date rocks and fossils up to billions of years old." },
+  { isotope:"Ra-224", element:"Radium", year:2020, image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Radium226.jpg/320px-Radium226.jpg", discovery:"ISOLDE's study of this radium isotope using laser spectroscopy contributed to understanding octupole deformation — a 'pear-shaped' nuclear shape with implications for atomic electric dipole moment searches.", science:"Ra-224 has a pear-shaped (octupole-deformed) nucleus. This asymmetry amplifies certain quantum effects, making radium atoms ideal laboratories for searching for a permanent electric dipole moment — a signal of new physics beyond the Standard Model.", applications:"Radium isotopes are used in targeted alpha therapy — a cutting-edge cancer treatment that delivers lethal radiation directly to tumour cells while sparing healthy tissue." }
 ];
 
 let currentIndex = 0, isAnimating = false, autoPlayTimer = null, dismissTimer = null;
@@ -596,7 +689,8 @@ const btnFire = $('btnFire'), btnRestart = $('btnRestart'), completionMsg = $('c
 const beamPulse = $('beamPulse'), targetFlash = $('targetFlash'), targetWrap = $('targetWrap');
 const isotopeCircle = $('isotopeCircle'), infoPanel = $('infoPanel');
 const infoPlaceholder = $('infoPlaceholder'), infoContent = $('infoContent');
-const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc'), isoImage = $('isoImage');
+const isoName = $('isoName'), isoElement = $('isoElement'), isoYear = $('isoYear'), isoDesc = $('isoDesc'), isoImage = $('isoImage'), isoImpact = $('isoImpact'), isoScience = $('isoScience'), isoApplications = $('isoApplications');
+const learnToggle = $('learnToggle'), learnSection = $('learnSection');
 const progressText = $('progressText'), progressPct = $('progressPct'), progressFill = $('progressFill');
 const autoPlayCheckbox = $('autoPlay'), speedSlider = $('speedSlider'), speedLabel = $('speedLabel');
 const themeToggle = $('themeToggle');
@@ -642,6 +736,13 @@ function showInfoCard(d) {
   isoName.textContent = d.isotope; isoElement.textContent = d.element;
   isoYear.textContent = d.year; isoDesc.textContent = d.discovery;
   isoImage.src = d.image || ''; isoImage.alt = d.element;
+  if (d.science && d.applications) {
+    isoScience.textContent = d.science;
+    isoApplications.textContent = d.applications;
+    isoImpact.style.display = 'flex';
+  } else {
+    isoImpact.style.display = 'none';
+  }
   infoPlaceholder.style.display = 'none'; infoContent.style.display = 'block';
   infoPanel.classList.add('visible');
 }
@@ -740,6 +841,11 @@ speedSlider.addEventListener('input', () => {
 });
 
 btnFire.disabled = false;
+
+// Learn section toggle
+learnToggle.addEventListener('click', () => {
+  learnSection.classList.toggle('open');
+});
 </script>
 </body>
 </html>
